@@ -1,0 +1,11 @@
+C:\Users\Admin\OneDrive\repo\binaries\binaries\bin\Debug\binaries.exe.config
+C:\Users\Admin\OneDrive\repo\binaries\binaries\bin\Debug\binaries.exe
+C:\Users\Admin\OneDrive\repo\binaries\binaries\bin\Debug\binaries.pdb
+C:\Users\Admin\OneDrive\repo\binaries\binaries\obj\Debug\binaries.Form1.resources
+C:\Users\Admin\OneDrive\repo\binaries\binaries\obj\Debug\binaries.Properties.Resources.resources
+C:\Users\Admin\OneDrive\repo\binaries\binaries\obj\Debug\binaries.csproj.GenerateResource.cache
+C:\Users\Admin\OneDrive\repo\binaries\binaries\obj\Debug\binaries.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\repo\binaries\binaries\obj\Debug\binaries.exe
+C:\Users\Admin\OneDrive\repo\binaries\binaries\obj\Debug\binaries.pdb
+C:\Users\Admin\OneDrive\repo\binaries\binaries\obj\Debug\binaries.csproj.AssemblyReference.cache
+C:\Users\Admin\OneDrive\repo\binaries\binaries\obj\Debug\binaries.csproj.SuggestedBindingRedirects.cache
