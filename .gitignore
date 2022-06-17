@@ -1,0 +1,4 @@
+# ignore ALL cache files
+*.cache
+
+.suo
