@@ -10,5 +10,8 @@
 *.userosscache
 *.sln.docstates
 
-## Ignore CACHE files
+# Ignore CACHE files
 *.cache
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
