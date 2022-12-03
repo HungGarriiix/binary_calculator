@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace binaries
 {
-    public class IntCal : ICal
+    public class IntToBinaryCal : ICal, IBinaryExtend
     {
-        public IntCal(int integer)
+        public IntToBinaryCal(int integer)
         {
             Integer = integer;
             Result = "";

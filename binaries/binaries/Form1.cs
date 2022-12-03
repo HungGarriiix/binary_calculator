@@ -110,7 +110,7 @@ namespace binaries
             {
                 // Change calculation main section
                 // Change comboBox first because the textboxes will be resetted if SelectedIndex changes
-                cmbModeSelection.SelectedIndex = (CalculatorMain.CurrentCal is BinaryCal) ? CalculatorMain.BINARY_CAL_MODE : CalculatorMain.INT_CAL_MODE;
+                cmbModeSelection.SelectedIndex = (CalculatorMain.CurrentCal is BinaryToIntCal) ? CalculatorMain.BINARY_CAL_MODE : CalculatorMain.INT_CAL_MODE;
                 txbInput.Text = CalculatorMain.CurrentCal.GetInput();
                 txbResult.Text = CalculatorMain.CurrentCal.GetDefaultResult();
 
@@ -160,9 +160,9 @@ namespace binaries
 
         private void AlterBinaryChain(object sender, EventArgs e)
         {
-            if (CalculatorMain.CurrentCal != null && CalculatorMain.CurrentCal is IntCal)
+            if (CalculatorMain.CurrentCal != null && CalculatorMain.CurrentCal is IntToBinaryCal)
             {
-                txbResult.Text = ((IntCal)(CalculatorMain.CurrentCal)).GetExtendedBinary((int)nudBinaryLength.Value);
+                txbResult.Text = ((IntToBinaryCal)(CalculatorMain.CurrentCal)).GetExtendedBinary((int)nudBinaryLength.Value);
             }
         }
 

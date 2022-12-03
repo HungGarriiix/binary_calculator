@@ -105,15 +105,15 @@ namespace binaries
             No = GetNumberOfDoneCalculations();
         }
 
-        private static BinaryCal CalculateBinaryToInt(string given_binary)
+        private static BinaryToIntCal CalculateBinaryToInt(string given_binary)
         {
-            BinaryCal cal = new BinaryCal(given_binary);
+            BinaryToIntCal cal = new BinaryToIntCal(given_binary);
             return cal;
         }
 
-        private static IntCal CalculateIntToBinary(int given_int)
+        private static IntToBinaryCal CalculateIntToBinary(int given_int)
         {
-            IntCal cal = new IntCal(given_int);
+            IntToBinaryCal cal = new IntToBinaryCal(given_int);
             return cal;
         }
 
