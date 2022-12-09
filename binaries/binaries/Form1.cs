@@ -12,23 +12,29 @@ namespace binaries
 {
     public partial class Form1 : Form
     {
+        // Instance initialization
+        CalculatorMain main;
+
+
         public Form1()
         {
             InitializeComponent();
+            main = new CalculatorMain();
+
             BindingModeSelectionBox();
             SetupHistorySection();
 
-            CalculatorMain.NotificationTriggered += DisplayNotification;
-            CalculatorMain.CurrentCalChanged += UpdateCalculation;
+            CalculatorProcessor.NotificationTriggered += DisplayNotification;
+            main.Cal.CurrentCalChanged += UpdateCalculation;
 
             SetupBinaryNumbericUpDown();
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            if (CalculatorMain.AddCurrentCal(cmbModeSelection.SelectedIndex, txbInput.Text))
+            if (main.Cal.AddNewCal(CalculatorProcessor.MakeCalculation(txbInput.Text, cmbModeSelection.SelectedIndex)))
             {
-                txbResult.Text = CalculatorMain.CurrentCal.GetDefaultResult();
+                txbResult.Text = main.Cal.CurrentCal.Result;
             }
             else
             {
@@ -39,22 +45,22 @@ namespace binaries
         // Calculation history section
         private void btnCalHistoryRecently_Click(object sender, EventArgs e)
         {
-            CalculatorMain.RecentCalculation();
+            main.Cal.RecentCalculation();
         }
 
         private void btnCalHistoryNext_Click(object sender, EventArgs e)
         {
-            CalculatorMain.NextCalculation();
+            main.Cal.NextCalculation();
         }
 
         private void btnCalHistoryPrevious_Click(object sender, EventArgs e)
         {
-            CalculatorMain.PreviousCalculation();
+            main.Cal.PreviousCalculation();
         }
 
         private void btnCalHistoryLast_Click(object sender, EventArgs e)
         {
-            CalculatorMain.LastCalculation();
+            main.Cal.LastCalculation();
         }
 
         // When the mode is selected ...
@@ -69,7 +75,7 @@ namespace binaries
             int index = cmbModeSelection.SelectedIndex;
             switch(index)
             {
-                case CalculatorMain.NO_MODE:
+                case CalculatorProcessor.NO_MODE:
 
                     lblInput.Text = "Please insert ________:";
                     txbInput.Enabled = false;
@@ -78,7 +84,7 @@ namespace binaries
                     nudBinaryLength.Visible = false;
 
                     break;
-                case CalculatorMain.BINARY_CAL_MODE:
+                case CalculatorProcessor.BINARY_INT_MODE:
 
                     lblInput.Text = "Please insert a binary chain:";
                     txbInput.Enabled = true;
@@ -87,7 +93,7 @@ namespace binaries
                     nudBinaryLength.Visible = false;
 
                     break;
-                case CalculatorMain.INT_CAL_MODE:
+                case CalculatorProcessor.INT_BINARY_MODE:
 
                     lblInput.Text = "Please insert an integer:";
                     txbInput.Enabled = true;
@@ -100,22 +106,20 @@ namespace binaries
                     // Erase all data on the window
                     break;
             }
-
-            
         }
 
         private void UpdateCalculation(object sender, EventArgs e)
         {
-            if (CalculatorMain.No != 0)
+            if (main.Cal.No != 0)
             {
                 // Change calculation main section
                 // Change comboBox first because the textboxes will be resetted if SelectedIndex changes
-                cmbModeSelection.SelectedIndex = (CalculatorMain.CurrentCal is BinaryToIntCal) ? CalculatorMain.BINARY_CAL_MODE : CalculatorMain.INT_CAL_MODE;
-                txbInput.Text = CalculatorMain.CurrentCal.GetInput();
-                txbResult.Text = CalculatorMain.CurrentCal.GetDefaultResult();
+                cmbModeSelection.SelectedIndex = (main.Cal.CurrentCal is BinaryToIntCal) ? CalculatorProcessor.BINARY_INT_MODE : CalculatorProcessor.INT_BINARY_MODE;
+                txbInput.Text = main.Cal.CurrentCal.Input;
+                txbResult.Text = main.Cal.CurrentCal.Result;
 
                 // Change nud if the result is binary
-                if (cmbModeSelection.SelectedIndex == CalculatorMain.INT_CAL_MODE)
+                if (cmbModeSelection.SelectedIndex == CalculatorProcessor.INT_BINARY_MODE)
                 {
                     nudBinaryLength.ValueChanged -= AlterBinaryChain;
 
@@ -128,19 +132,18 @@ namespace binaries
                 }
 
                 // Change history selection section
-                int count = CalculatorMain.GetNumberOfDoneCalculations();
-                txbCalHistory.Text = CalculatorMain.No.ToString();
-                lblCalHistory.Text = $"out of {count}";
+                txbCalHistory.Text = main.Cal.No.ToString();
+                lblCalHistory.Text = $"out of {main.Cal.NoCalculations}";
 
 
-                if (CalculatorMain.No == 1)
+                if (main.Cal.No == 1)
                 {
                     btnCalHistoryRecently.Visible = false;
                     btnCalHistoryNext.Visible = false;
                     btnCalHistoryPrevious.Visible = true;
                     btnCalHistoryLast.Visible = true;
                 }
-                else if (CalculatorMain.No == count)
+                else if (main.Cal.No == main.Cal.NoCalculations)
                 {
                     btnCalHistoryRecently.Visible = true;
                     btnCalHistoryNext.Visible = true;
@@ -160,9 +163,9 @@ namespace binaries
 
         private void AlterBinaryChain(object sender, EventArgs e)
         {
-            if (CalculatorMain.CurrentCal != null && CalculatorMain.CurrentCal is IntToBinaryCal)
+            if (main.Cal.CurrentCal != null && main.Cal.CurrentCal is IntToBinaryCal)
             {
-                txbResult.Text = ((IntToBinaryCal)(CalculatorMain.CurrentCal)).GetExtendedBinary((int)nudBinaryLength.Value);
+                txbResult.Text = ((IBinaryExtend)(main.Cal.CurrentCal)).GetExtendedBinary((int)nudBinaryLength.Value);
             }
         }
 
@@ -176,9 +179,9 @@ namespace binaries
 
         private void BindingModeSelectionBox()
         {
-            cmbModeSelection.DataSource = CalculatorMain.GetModes();
+            cmbModeSelection.DataSource = main.GetModes();
             // None mode is default
-            cmbModeSelection.SelectedIndex = CalculatorMain.NO_MODE;
+            cmbModeSelection.SelectedIndex = CalculatorProcessor.NO_MODE;
         }
 
         private void SetupHistorySection()

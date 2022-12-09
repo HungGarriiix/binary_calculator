@@ -8,8 +8,9 @@ namespace binaries
 {
     public interface ICal
     {
+        string Result { get; }
+        string Input { get; }
         void Calculate();
-        string GetInput();
-        string GetDefaultResult();
+        bool CheckInput(string input);
     }
 }

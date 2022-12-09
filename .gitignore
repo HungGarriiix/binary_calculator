@@ -15,3 +15,7 @@
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+
+# Exported files (like compiled program)
+binaries/bin/
+binaries/obj/

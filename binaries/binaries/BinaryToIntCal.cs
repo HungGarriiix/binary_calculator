@@ -8,31 +8,44 @@ namespace binaries
 {
     public class BinaryToIntCal : ICal
     {
-        public BinaryToIntCal(string binary)
-        {
-            Binary = binary;
-            Result = -1;
+        private readonly string _binary;
+        private int _int_result;
 
-            // There might be an input check to make sure the input is indeed a binary string
+        public BinaryToIntCal(string input)
+        {
+            CheckInput(input);
+            
+            _binary = input;
+            _int_result = 0;
             Calculate();
         }
 
-        public string Binary { get; private set; }
-        public int Result { get; private set; }
+        public string Input { get { return _binary; } }
+        public string Result { get { return _int_result.ToString(); } }
+
+        public bool CheckInput(string input)
+        {
+            if (input == string.Empty)
+                throw new ArgumentException("The input is empty.");
+
+            foreach (char c in input)
+            {
+                if (c != '0' && c != '1')
+                {
+                    //return false;
+                    throw new ArgumentException("The input is not a binary chain.");
+                }
+            }
+
+            return true;
+        }
 
         private int GetBinaryInt(char i)
         {
-            if (i == '0')
-            {
-                return 0;
-            }
-            else
-            {
-                return 1;
-            }
+            return (i == '0') ? 0 : 1;
         }
 
-        private int GetBinaryPower(int power)
+/*        private int GetBinaryPower(int power)
         {
             int powered = 1;
             for (int i = 0; i < power; i++)
@@ -40,26 +53,23 @@ namespace binaries
                 powered *= 2;
             }
             return powered;
-        }
+        }*/
 
         public void Calculate()
         {
-            int result = 0;
-            for (int i = 0; i < Binary.Length; i++)
+            // Version 1:
+            /*for (int i = 0; i < _binary.Length; i++)
             {
-                result += GetBinaryInt(Binary[i]) * GetBinaryPower(Binary.Length - i - 1);
+                _int_result += GetBinaryInt(_binary[i]) * GetBinaryPower(_binary.Length - i - 1);
+            }*/
+
+            // Version 2:
+            int power = 1;
+            for (int i = _binary.Length - 1; i > -1; i--)
+            {
+                _int_result += GetBinaryInt(_binary[i]) * power;
+                power *= 2;
             }
-            Result = result;
-        }
-
-        public string GetInput()
-        {
-            return Binary;
-        }
-
-        public string GetDefaultResult()
-        {
-            return Result.ToString();
         }
     }
 }

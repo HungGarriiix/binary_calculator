@@ -11,7 +11,7 @@ namespace binaries
         private List<ICal> calculations;
         private int no;
         private ICal currentCal;
-        public EventHandler CurrentCalChanged;
+        public event EventHandler CurrentCalChanged;
 
         public CalHistory()
         {
@@ -67,9 +67,19 @@ namespace binaries
             No = NoCalculations;
         }
 
-        public void AddNewCal(ICal cal)
+        public bool AddNewCal(ICal cal)
         {
-
+/*            ICal cal = CalculatorProcessor.MakeCalculation(mode, input);*/
+            if (cal != null)
+            {
+                calculations.Add(cal);
+                RecentCalculation();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private ICal GetCalculation(int index)
