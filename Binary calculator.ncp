@@ -8,12 +8,13 @@
         <Name>CalculatorMain</Name>
         <Access>Public</Access>
         <Location left="844" top="393" />
-        <Size width="272" height="179" />
+        <Size width="272" height="196" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private readonly List&lt;string&gt; mode_names = new List&lt;string&gt;()</Member>
-        <Member type="Field">private readonly CalHistory cal</Member>
+        <Member type="Field">private readonly CCList _calculations</Member>
+        <Member type="Field">private readonly CIListStraight _cals</Member>
         <Member type="Constructor">CalculatorMain()</Member>
-        <Member type="Property">public CalHistory Cal { get; }</Member>
+        <Member type="Property">public CIListStraight Cals { get; }</Member>
         <Member type="Method">private void AddModeNames()</Member>
         <Member type="Method">public string[] GetModes()</Member>
         <Modifier>None</Modifier>
@@ -21,7 +22,7 @@
       <Entity type="Class">
         <Name>BinaryToIntCal</Name>
         <Access>Public</Access>
-        <Location left="1087" top="1394" />
+        <Location left="1070" top="1229" />
         <Size width="197" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private readonly string _binary</Member>
@@ -33,7 +34,7 @@
       <Entity type="Class">
         <Name>IntToBinaryCal</Name>
         <Access>Public</Access>
-        <Location left="657" top="1394" />
+        <Location left="640" top="1229" />
         <Size width="330" height="162" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private readonly int _int</Member>
@@ -46,7 +47,7 @@
       <Entity type="Interface">
         <Name>ICal</Name>
         <Access>Public</Access>
-        <Location left="899" top="1136" />
+        <Location left="882" top="971" />
         <Size width="162" height="129" />
         <Collapsed>False</Collapsed>
         <Member type="Property">string Input { get; }</Member>
@@ -76,34 +77,10 @@
         <Member type="Method">private void DisplayNotification(object sender, string notification)</Member>
         <Modifier>None</Modifier>
       </Entity>
-      <Entity type="Class">
-        <Name>CalHistory</Name>
-        <Access>Public</Access>
-        <Location left="860" top="713" />
-        <Size width="221" height="349" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private List&lt;ICal&gt; calculations</Member>
-        <Member type="Field">private int no</Member>
-        <Member type="Field">private ICal currentCal</Member>
-        <Member type="Constructor">public CalHistory()</Member>
-        <Member type="Event">public event EventHandler CurrentCalChanged</Member>
-        <Member type="Property">public int No { get; }</Member>
-        <Member type="Property">public ICal CurrentCal { get; }</Member>
-        <Member type="Property">public int NoCalculations { get; }</Member>
-        <Member type="Method">private void InitializeIndex()</Member>
-        <Member type="Method">public void NextCalculation()</Member>
-        <Member type="Method">public void PreviousCalculation()</Member>
-        <Member type="Method">public void RecentCalculation()</Member>
-        <Member type="Method">public void LastCalculation()</Member>
-        <Member type="Method">public void AddNewCal(ICal cal)</Member>
-        <Member type="Method">private ICal GetCalculation(int index)</Member>
-        <Member type="Method">public void OnCurrentCalChange()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
       <Entity type="Interface">
         <Name>IBinaryExtend</Name>
         <Access>Public</Access>
-        <Location left="592" top="1192" />
+        <Location left="575" top="1027" />
         <Size width="217" height="78" />
         <Collapsed>False</Collapsed>
         <Member type="Method">string GetExtendedBinary(int length)</Member>
@@ -125,19 +102,61 @@
       <Entity type="Class">
         <Name>NotificationTriggeredEventArgs</Name>
         <Access>Public</Access>
-        <Location left="1395" top="2043" />
+        <Location left="222" top="1022" />
         <Size width="264" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public string Message { get; set; }</Member>
         <Member type="Constructor">public NotificationTriggeredEventArgs(string message)</Member>
         <Modifier>None</Modifier>
       </Entity>
-      <Entity type="Interface">
-        <Name>ICalHistoryIterator</Name>
+      <Entity type="Class">
+        <Name>CIListStraight</Name>
         <Access>Public</Access>
-        <Location left="1421" top="1686" />
-        <Size width="162" height="216" />
+        <Location left="1321" top="498" />
+        <Size width="162" height="111" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">ICalCollection collection</Member>
+        <Member type="Constructor">public CIListStraight(CCList cals)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICalIterator</Name>
+        <Access>Public</Access>
+        <Location left="1307" top="682" />
+        <Size width="214" height="265" />
+        <Collapsed>False</Collapsed>
+        <Member type="Event">event EventHandler CurrentCalChanged</Member>
+        <Member type="Property">int No { get; }</Member>
+        <Member type="Property">ICal CurrentCal { get; }</Member>
+        <Member type="Property">int NoCalculations { get; }</Member>
+        <Member type="Property">bool IsHead { get; }</Member>
+        <Member type="Property">bool IsEnd { get; set; }</Member>
+        <Member type="Method">void NextCalculation()</Member>
+        <Member type="Method">void PreviousCalculation()</Member>
+        <Member type="Method">void RecentCalculation()</Member>
+        <Member type="Method">void LastCalculation()</Member>
+        <Member type="Method">List&lt;ICal&gt; PrintIterator()</Member>
+        <Member type="Method">void OnCurrentCalChange()</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICalCollection</Name>
+        <Access>Public</Access>
+        <Location left="1065" top="682" />
+        <Size width="197" height="112" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">ICalIterator GetForwardIterator()</Member>
+        <Member type="Method">ICal GetCalculation(int index)</Member>
+        <Member type="Method">void AddNewCal(ICal cal)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>CCList</Name>
+        <Access>Public</Access>
+        <Location left="882" top="785" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">List&lt;ICal&gt; _list</Member>
+        <Member type="Constructor">public CCList(List&lt;ICal&gt; cals)</Member>
+        <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
@@ -151,55 +170,113 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1190</X>
-          <Y>1345</Y>
+          <X>1173</X>
+          <Y>1180</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>986</X>
-          <Y>1309</Y>
+          <X>969</X>
+          <Y>1144</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="2" second="3">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>770</X>
-          <Y>1336</Y>
+          <X>753</X>
+          <Y>1171</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>986</X>
-          <Y>1319</Y>
+          <X>969</X>
+          <Y>1154</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="0" second="5">
+      <Relationship type="Realization" first="2" second="5">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="4" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>986</X>
-          <Y>680</Y>
+          <X>836</X>
+          <Y>1003</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="5" second="3">
+      <Relationship type="Dependency" first="10" second="9">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1289</X>
+          <Y>753</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1282</X>
+          <Y>753</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="11" second="10">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1086</X>
+          <Y>854</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1170</X>
+          <Y>830</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="8" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1410</X>
+          <Y>652</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="8" second="11">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>981</X>
-          <Y>1115</Y>
+          <X>1350</X>
+          <Y>634</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>980</X>
-          <Y>1111</Y>
+          <X>1001</X>
+          <Y>669</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Realization" first="2" second="6">
+      <Relationship type="Association" first="11" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>937</X>
+          <Y>943</Y>
+        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="4" second="7">
+      <Relationship type="Association" first="0" second="11">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -207,21 +284,21 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="7" second="3">
+      <Relationship type="Association" first="0" second="8">
         <Label>
         </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>853</X>
-          <Y>1168</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Dependency" first="5" second="7">
         <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1194</X>
+          <Y>459</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1410</X>
+          <Y>473</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>
