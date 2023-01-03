@@ -11,15 +11,20 @@ namespace binaries
     {
         // Normal initialization
         private readonly List<string> mode_names = new List<string>();
-        private readonly CalHistory cal;
+        private readonly ICalCollection _calculations;
+        private readonly ICalIterator _cals;
 
         public CalculatorMain()
         {
             AddModeNames();
-            cal = new CalHistory();
+            _calculations = new CCList();
+            _cals = _calculations.GetForwardIterator();
+            _calculations.CollectionChanged += SetupMainIterator;
         }
 
-        public CalHistory Cal { get { return cal; } }
+        public ICalCollection CollectionCal { get { return _calculations; } }
+
+        public ICalIterator MainCal { get { return _cals; } }
 
         private void AddModeNames()
         {
@@ -31,6 +36,11 @@ namespace binaries
         public string[] GetModes()
         {
             return mode_names.ToArray();
+        }
+
+        private void SetupMainIterator(object sender, EventArgs e)
+        {
+            _cals.RecentCalculation();
         }
     }
 }

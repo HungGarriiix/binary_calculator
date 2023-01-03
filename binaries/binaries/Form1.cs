@@ -25,42 +25,35 @@ namespace binaries
             SetupHistorySection();
 
             CalculatorProcessor.NotificationTriggered += DisplayNotification;
-            main.Cal.CurrentCalChanged += UpdateCalculation;
+            main.MainCal.CurrentCalChanged += UpdateCalculation;
 
             SetupBinaryNumbericUpDown();
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            if (main.Cal.AddNewCal(CalculatorProcessor.MakeCalculation(txbInput.Text, cmbModeSelection.SelectedIndex)))
-            {
-                txbResult.Text = main.Cal.CurrentCal.Result;
-            }
-            else
-            {
-                txbResult.Text = String.Empty;
-            }
+            main.CollectionCal.AddNewCal(CalculatorProcessor.MakeCalculation(txbInput.Text, cmbModeSelection.SelectedIndex));
         }
 
         // Calculation history section
         private void btnCalHistoryRecently_Click(object sender, EventArgs e)
         {
-            main.Cal.RecentCalculation();
+            main.MainCal.RecentCalculation();
         }
 
         private void btnCalHistoryNext_Click(object sender, EventArgs e)
         {
-            main.Cal.NextCalculation();
+            main.MainCal.NextCalculation();
         }
 
         private void btnCalHistoryPrevious_Click(object sender, EventArgs e)
         {
-            main.Cal.PreviousCalculation();
+            main.MainCal.PreviousCalculation();
         }
 
         private void btnCalHistoryLast_Click(object sender, EventArgs e)
         {
-            main.Cal.LastCalculation();
+            main.MainCal.LastCalculation();
         }
 
         // When the mode is selected ...
@@ -69,7 +62,6 @@ namespace binaries
             // Default universal settings for all modes
             txbInput.Text = String.Empty;
             txbResult.Text = String.Empty;
-/*            CalculatorMain.RecentCalculation();*/
 
             // Settings for each modes
             int index = cmbModeSelection.SelectedIndex;
@@ -110,13 +102,13 @@ namespace binaries
 
         private void UpdateCalculation(object sender, EventArgs e)
         {
-            if (main.Cal.No != 0)
+            if (main.MainCal.NoCalculations > 0 && main.MainCal.CurrentCal != null)
             {
                 // Change calculation main section
                 // Change comboBox first because the textboxes will be resetted if SelectedIndex changes
-                cmbModeSelection.SelectedIndex = (main.Cal.CurrentCal is BinaryToIntCal) ? CalculatorProcessor.BINARY_INT_MODE : CalculatorProcessor.INT_BINARY_MODE;
-                txbInput.Text = main.Cal.CurrentCal.Input;
-                txbResult.Text = main.Cal.CurrentCal.Result;
+                cmbModeSelection.SelectedIndex = (main.MainCal.CurrentCal is BinaryToIntCal) ? CalculatorProcessor.BINARY_INT_MODE : CalculatorProcessor.INT_BINARY_MODE;
+                txbInput.Text = main.MainCal.CurrentCal.Input;
+                txbResult.Text = main.MainCal.CurrentCal.Result;
 
                 // Change nud if the result is binary
                 if (cmbModeSelection.SelectedIndex == CalculatorProcessor.INT_BINARY_MODE)
@@ -132,18 +124,18 @@ namespace binaries
                 }
 
                 // Change history selection section
-                txbCalHistory.Text = main.Cal.No.ToString();
-                lblCalHistory.Text = $"out of {main.Cal.NoCalculations}";
+                txbCalHistory.Text = main.MainCal.No.ToString();
+                lblCalHistory.Text = $"out of {main.MainCal.NoCalculations}";
 
 
-                if (main.Cal.No == 1)
+                if (main.MainCal.No == 1)
                 {
                     btnCalHistoryRecently.Visible = false;
                     btnCalHistoryNext.Visible = false;
                     btnCalHistoryPrevious.Visible = true;
                     btnCalHistoryLast.Visible = true;
                 }
-                else if (main.Cal.No == main.Cal.NoCalculations)
+                else if (main.MainCal.No == main.MainCal.NoCalculations)
                 {
                     btnCalHistoryRecently.Visible = true;
                     btnCalHistoryNext.Visible = true;
@@ -163,9 +155,9 @@ namespace binaries
 
         private void AlterBinaryChain(object sender, EventArgs e)
         {
-            if (main.Cal.CurrentCal != null && main.Cal.CurrentCal is IntToBinaryCal)
+            if (main.MainCal.CurrentCal != null && main.MainCal.CurrentCal is IntToBinaryCal)
             {
-                txbResult.Text = ((IBinaryExtend)(main.Cal.CurrentCal)).GetExtendedBinary((int)nudBinaryLength.Value);
+                txbResult.Text = ((IBinaryExtend)(main.MainCal.CurrentCal)).GetExtendedBinary((int)nudBinaryLength.Value);
             }
         }
 

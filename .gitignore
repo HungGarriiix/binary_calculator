@@ -17,5 +17,5 @@
 .vs/
 
 # Exported files (like compiled program)
-binaries/bin/
-binaries/obj/
+binaries/binaries/bin/
+binaries/binaries/obj/
