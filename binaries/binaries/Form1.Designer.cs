@@ -48,60 +48,67 @@
             // 
             // txbInput
             // 
-            this.txbInput.Location = new System.Drawing.Point(55, 46);
+            this.txbInput.Location = new System.Drawing.Point(73, 56);
+            this.txbInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbInput.Name = "txbInput";
-            this.txbInput.Size = new System.Drawing.Size(267, 20);
+            this.txbInput.Size = new System.Drawing.Size(355, 22);
             this.txbInput.TabIndex = 0;
             // 
             // txbResult
             // 
-            this.txbResult.Location = new System.Drawing.Point(55, 156);
+            this.txbResult.Location = new System.Drawing.Point(73, 192);
+            this.txbResult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbResult.Name = "txbResult";
             this.txbResult.ReadOnly = true;
-            this.txbResult.Size = new System.Drawing.Size(267, 20);
+            this.txbResult.Size = new System.Drawing.Size(355, 22);
             this.txbResult.TabIndex = 1;
             // 
             // lblInput
             // 
             this.lblInput.AutoSize = true;
-            this.lblInput.Location = new System.Drawing.Point(55, 27);
+            this.lblInput.Location = new System.Drawing.Point(73, 33);
+            this.lblInput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInput.Name = "lblInput";
-            this.lblInput.Size = new System.Drawing.Size(91, 13);
+            this.lblInput.Size = new System.Drawing.Size(112, 16);
             this.lblInput.TabIndex = 2;
             this.lblInput.Text = "Please insert ___:";
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(55, 140);
+            this.lblResult.Location = new System.Drawing.Point(73, 172);
+            this.lblResult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(37, 13);
+            this.lblResult.Size = new System.Drawing.Size(45, 16);
             this.lblResult.TabIndex = 3;
             this.lblResult.Text = "Result";
             // 
             // cmbModeSelection
             // 
             this.cmbModeSelection.FormattingEnabled = true;
-            this.cmbModeSelection.Location = new System.Drawing.Point(55, 73);
+            this.cmbModeSelection.Location = new System.Drawing.Point(73, 90);
+            this.cmbModeSelection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbModeSelection.Name = "cmbModeSelection";
-            this.cmbModeSelection.Size = new System.Drawing.Size(121, 21);
+            this.cmbModeSelection.Size = new System.Drawing.Size(160, 24);
             this.cmbModeSelection.TabIndex = 4;
             this.cmbModeSelection.SelectedIndexChanged += new System.EventHandler(this.cmbModeSelection_SelectedIndexChanged);
             // 
             // lblCalculationModeNotif
             // 
             this.lblCalculationModeNotif.AutoSize = true;
-            this.lblCalculationModeNotif.Location = new System.Drawing.Point(183, 80);
+            this.lblCalculationModeNotif.Location = new System.Drawing.Point(244, 98);
+            this.lblCalculationModeNotif.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCalculationModeNotif.Name = "lblCalculationModeNotif";
-            this.lblCalculationModeNotif.Size = new System.Drawing.Size(281, 13);
+            this.lblCalculationModeNotif.Size = new System.Drawing.Size(353, 16);
             this.lblCalculationModeNotif.TabIndex = 5;
             this.lblCalculationModeNotif.Text = "Please select calculation mode before using the calculator";
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(55, 101);
+            this.btnCalculate.Location = new System.Drawing.Point(73, 124);
+            this.btnCalculate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(75, 23);
+            this.btnCalculate.Size = new System.Drawing.Size(100, 28);
             this.btnCalculate.TabIndex = 6;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
@@ -109,41 +116,46 @@
             // 
             // nudBinaryLength
             // 
-            this.nudBinaryLength.Location = new System.Drawing.Point(358, 156);
+            this.nudBinaryLength.Location = new System.Drawing.Point(477, 192);
+            this.nudBinaryLength.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudBinaryLength.Name = "nudBinaryLength";
-            this.nudBinaryLength.Size = new System.Drawing.Size(106, 20);
+            this.nudBinaryLength.Size = new System.Drawing.Size(141, 22);
             this.nudBinaryLength.TabIndex = 8;
             // 
             // lblBinaryLength
             // 
             this.lblBinaryLength.AutoSize = true;
-            this.lblBinaryLength.Location = new System.Drawing.Point(355, 140);
+            this.lblBinaryLength.Location = new System.Drawing.Point(473, 172);
+            this.lblBinaryLength.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBinaryLength.Name = "lblBinaryLength";
-            this.lblBinaryLength.Size = new System.Drawing.Size(126, 13);
+            this.lblBinaryLength.Size = new System.Drawing.Size(156, 16);
             this.lblBinaryLength.TabIndex = 9;
             this.lblBinaryLength.Text = "Adjust binary length here:";
             // 
             // lblCalHistory
             // 
             this.lblCalHistory.AutoSize = true;
-            this.lblCalHistory.Location = new System.Drawing.Point(437, 46);
+            this.lblCalHistory.Location = new System.Drawing.Point(583, 57);
+            this.lblCalHistory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCalHistory.Name = "lblCalHistory";
-            this.lblCalHistory.Size = new System.Drawing.Size(55, 13);
+            this.lblCalHistory.Size = new System.Drawing.Size(63, 16);
             this.lblCalHistory.TabIndex = 10;
             this.lblCalHistory.Text = "out of ___";
             // 
             // txbCalHistory
             // 
-            this.txbCalHistory.Location = new System.Drawing.Point(397, 43);
+            this.txbCalHistory.Location = new System.Drawing.Point(529, 53);
+            this.txbCalHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbCalHistory.Name = "txbCalHistory";
-            this.txbCalHistory.Size = new System.Drawing.Size(34, 20);
+            this.txbCalHistory.Size = new System.Drawing.Size(44, 22);
             this.txbCalHistory.TabIndex = 11;
             // 
             // btnCalHistoryPrevious
             // 
-            this.btnCalHistoryPrevious.Location = new System.Drawing.Point(498, 41);
+            this.btnCalHistoryPrevious.Location = new System.Drawing.Point(664, 50);
+            this.btnCalHistoryPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCalHistoryPrevious.Name = "btnCalHistoryPrevious";
-            this.btnCalHistoryPrevious.Size = new System.Drawing.Size(23, 23);
+            this.btnCalHistoryPrevious.Size = new System.Drawing.Size(31, 28);
             this.btnCalHistoryPrevious.TabIndex = 12;
             this.btnCalHistoryPrevious.Text = ">";
             this.btnCalHistoryPrevious.UseVisualStyleBackColor = true;
@@ -151,9 +163,10 @@
             // 
             // btnCalHistoryNext
             // 
-            this.btnCalHistoryNext.Location = new System.Drawing.Point(365, 41);
+            this.btnCalHistoryNext.Location = new System.Drawing.Point(487, 50);
+            this.btnCalHistoryNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCalHistoryNext.Name = "btnCalHistoryNext";
-            this.btnCalHistoryNext.Size = new System.Drawing.Size(23, 23);
+            this.btnCalHistoryNext.Size = new System.Drawing.Size(31, 28);
             this.btnCalHistoryNext.TabIndex = 13;
             this.btnCalHistoryNext.Text = "<";
             this.btnCalHistoryNext.UseVisualStyleBackColor = true;
@@ -161,9 +174,10 @@
             // 
             // btnCalHistoryRecently
             // 
-            this.btnCalHistoryRecently.Location = new System.Drawing.Point(329, 41);
+            this.btnCalHistoryRecently.Location = new System.Drawing.Point(439, 50);
+            this.btnCalHistoryRecently.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCalHistoryRecently.Name = "btnCalHistoryRecently";
-            this.btnCalHistoryRecently.Size = new System.Drawing.Size(32, 23);
+            this.btnCalHistoryRecently.Size = new System.Drawing.Size(43, 28);
             this.btnCalHistoryRecently.TabIndex = 14;
             this.btnCalHistoryRecently.Text = "<<";
             this.btnCalHistoryRecently.UseVisualStyleBackColor = true;
@@ -171,9 +185,10 @@
             // 
             // btnCalHistoryLast
             // 
-            this.btnCalHistoryLast.Location = new System.Drawing.Point(527, 40);
+            this.btnCalHistoryLast.Location = new System.Drawing.Point(703, 49);
+            this.btnCalHistoryLast.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCalHistoryLast.Name = "btnCalHistoryLast";
-            this.btnCalHistoryLast.Size = new System.Drawing.Size(32, 23);
+            this.btnCalHistoryLast.Size = new System.Drawing.Size(43, 28);
             this.btnCalHistoryLast.TabIndex = 15;
             this.btnCalHistoryLast.Text = ">>";
             this.btnCalHistoryLast.UseVisualStyleBackColor = true;
@@ -181,9 +196,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 205);
+            this.ClientSize = new System.Drawing.Size(765, 252);
             this.Controls.Add(this.btnCalHistoryLast);
             this.Controls.Add(this.btnCalHistoryRecently);
             this.Controls.Add(this.btnCalHistoryNext);
@@ -199,6 +214,7 @@
             this.Controls.Add(this.lblInput);
             this.Controls.Add(this.txbResult);
             this.Controls.Add(this.txbInput);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.nudBinaryLength)).EndInit();
