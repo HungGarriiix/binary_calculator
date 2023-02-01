@@ -189,9 +189,9 @@ namespace binaries
             
         }
 
-        private void DisplayNotification(object sender, string notification)
+        private void DisplayNotification(object sender, NotificationTriggeredEventArgs n)
         {
-            MessageBox.Show(notification);
+            MessageBox.Show(n.PrintMessage());
         }
     }
 }

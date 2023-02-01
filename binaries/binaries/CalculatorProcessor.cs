@@ -12,7 +12,7 @@ namespace binaries
         public const int NO_MODE = 0;
         public const int BINARY_INT_MODE = 1;
         public const int INT_BINARY_MODE = 2;
-        public static event EventHandler<string> NotificationTriggered;
+        public static event EventHandler<NotificationTriggeredEventArgs> NotificationTriggered;
 
         public static ICal MakeCalculation(string input, int mode)
         {
@@ -43,7 +43,7 @@ namespace binaries
 
         public static void SendNotification(string notification)
         {
-            NotificationTriggered?.Invoke(null, notification);
+            NotificationTriggered?.Invoke(null, new NotificationTriggeredEventArgs(notification));
         }
     }
 }
