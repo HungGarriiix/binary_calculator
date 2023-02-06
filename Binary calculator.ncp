@@ -76,7 +76,7 @@
         <Member type="Method">private void SetupBinaryNumbericUpDown()</Member>
         <Member type="Method">private void BindingModeSelectionBox()</Member>
         <Member type="Method">private void SetupHistorySection()</Member>
-        <Member type="Method">private void DisplayNotification(object sender, string notification)</Member>
+        <Member type="Method">private void DisplayNotification(object sender, NotificationTriggeredEventArgs n)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
@@ -342,103 +342,20 @@
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
-        <Name>CIListStraight</Name>
+        <Name>NotificationTriggeredEventArgs</Name>
         <Access>Public</Access>
-        <Location left="1456" top="1330" />
-        <Size width="162" height="145" />
+        <Location left="95" top="2021" />
+        <Size width="264" height="128" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private readonly CCList _collection</Member>
-        <Member type="Field">private int _index</Member>
-        <Member type="Field">private ICal _currentCal</Member>
-        <Member type="Constructor">public CIListStraight(CCList cals)</Member>
+        <Member type="Constructor">public NotificationTriggeredEventArgs(string message)</Member>
+        <Member type="Property">public string Message { get; }</Member>
+        <Member type="Method">public string PrintMessage()</Member>
         <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>ICalCollection</Name>
-        <Access>Public</Access>
-        <Location left="1180" top="1213" />
-        <Size width="197" height="180" />
-        <Collapsed>False</Collapsed>
-        <Member type="Event">event EventHandler CollectionChanged</Member>
-        <Member type="Method">ICal GetCalculation(int index)</Member>
-        <Member type="Method">void AddNewCal(ICal cal)</Member>
-        <Member type="Method">int GetNumberOfCals()</Member>
-        <Member type="Method">bool IndexIsInRange(int index)</Member>
-        <Member type="Method">void OnCollectionChange()</Member>
-        <Member type="Method">ICalIterator GetForwardIterator()</Member>
-      </Entity>
-      <Entity type="Class">
-        <Name>CalculatorMain</Name>
-        <Access>Public</Access>
-        <Location left="845" top="990" />
-        <Size width="294" height="230" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private readonly List&lt;string&gt; mode_names = new List&lt;string&gt;()</Member>
-        <Member type="Field">private readonly ICalCollection _calculations</Member>
-        <Member type="Field">private readonly CIListStraight _cals</Member>
-        <Member type="Constructor">CalculatorMain()</Member>
-        <Member type="Property">public ICalCollection CollectionCal { get; }</Member>
-        <Member type="Property">public CIListStraight MainCal { get; }</Member>
-        <Member type="Method">private void AddModeNames()</Member>
-        <Member type="Method">public string[] GetModes()</Member>
-        <Member type="Method">private void SetupMainIterator(object sender, EventArgs e)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>ICalIterator</Name>
-        <Access>Public</Access>
-        <Location left="1401" top="952" />
-        <Size width="214" height="248" />
-        <Collapsed>False</Collapsed>
-        <Member type="Event">event EventHandler CurrentCalChanged</Member>
-        <Member type="Property">int No { get; }</Member>
-        <Member type="Property">ICal CurrentCal { get; }</Member>
-        <Member type="Property">int NoCalculations { get; }</Member>
-        <Member type="Property">bool IsHead { get; }</Member>
-        <Member type="Property">bool IsTail { get; set; }</Member>
-        <Member type="Method">void NextCalculation()</Member>
-        <Member type="Method">void PreviousCalculation()</Member>
-        <Member type="Method">void RecentCalculation()</Member>
-        <Member type="Method">void LastCalculation()</Member>
-        <Member type="Method">void OnCurrentCalChange()</Member>
-      </Entity>
-      <Entity type="Class">
-        <Name>CCList</Name>
-        <Access>Public</Access>
-        <Location left="885" top="1359" />
-        <Size width="162" height="128" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private readonly List&lt;ICal&gt; _cals</Member>
-        <Member type="Constructor">public CCList()</Member>
-        <Member type="Constructor">public CCList(List&lt;ICal&gt; cals)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>CalculatorProcessor</Name>
-        <Access>Public</Access>
-        <Location left="463" top="1359" />
-        <Size width="258" height="179" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">public const int NO_MODE = 0</Member>
-        <Member type="Field">public const int BINARY_INT_MODE = 1</Member>
-        <Member type="Field">public const int INT_BINARY_MODE = 2</Member>
-        <Member type="Method">public static ICal MakeCalculation(string input, int mode)</Member>
-        <Member type="Event">public static event EventHandler&lt;string&gt; NotificationTriggered</Member>
-        <Member type="Method">public static void SendNotification(string notification)</Member>
-        <Modifier>Static</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>IBinaryExtend</Name>
-        <Access>Public</Access>
-        <Location left="609" top="1656" />
-        <Size width="217" height="78" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">string GetExtendedBinary(int length)</Member>
       </Entity>
       <Entity type="Class">
         <Name>Form1</Name>
         <Access>Public</Access>
-        <Location left="330" top="945" />
+        <Location left="301" top="1578" />
         <Size width="413" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">CalculatorMain main</Member>
@@ -457,10 +374,87 @@
         <Member type="Method">private void DisplayNotification(object sender, string notification)</Member>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Class">
+        <Name>CalculatorProcessor</Name>
+        <Access>Public</Access>
+        <Location left="434" top="1992" />
+        <Size width="372" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public const int NO_MODE = 0</Member>
+        <Member type="Field">public const int BINARY_INT_MODE = 1</Member>
+        <Member type="Field">public const int INT_BINARY_MODE = 2</Member>
+        <Member type="Event">public static event EventHandler&lt;NotificationTriggeredEventArgs&gt; NotificationTriggered</Member>
+        <Member type="Method">public static ICal MakeCalculation(string input, int mode)</Member>
+        <Member type="Method">public static void SendNotification(string notification)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CCList</Name>
+        <Access>Public</Access>
+        <Location left="856" top="1992" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private readonly List&lt;ICal&gt; _cals</Member>
+        <Member type="Constructor">public CCList()</Member>
+        <Member type="Constructor">public CCList(List&lt;ICal&gt; cals)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICalCollection</Name>
+        <Access>Public</Access>
+        <Location left="1151" top="1846" />
+        <Size width="197" height="180" />
+        <Collapsed>False</Collapsed>
+        <Member type="Event">event EventHandler CollectionChanged</Member>
+        <Member type="Method">ICal GetCalculation(int index)</Member>
+        <Member type="Method">void AddNewCal(ICal cal)</Member>
+        <Member type="Method">int GetNumberOfCals()</Member>
+        <Member type="Method">bool IndexIsInRange(int index)</Member>
+        <Member type="Method">void OnCollectionChange()</Member>
+        <Member type="Method">ICalIterator GetForwardIterator()</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICalIterator</Name>
+        <Access>Public</Access>
+        <Location left="1372" top="1585" />
+        <Size width="214" height="248" />
+        <Collapsed>False</Collapsed>
+        <Member type="Event">event EventHandler CurrentCalChanged</Member>
+        <Member type="Property">int No { get; }</Member>
+        <Member type="Property">ICal CurrentCal { get; }</Member>
+        <Member type="Property">int NoCalculations { get; }</Member>
+        <Member type="Property">bool IsHead { get; }</Member>
+        <Member type="Property">bool IsTail { get; set; }</Member>
+        <Member type="Method">void NextCalculation()</Member>
+        <Member type="Method">void PreviousCalculation()</Member>
+        <Member type="Method">void RecentCalculation()</Member>
+        <Member type="Method">void LastCalculation()</Member>
+        <Member type="Method">void OnCurrentCalChange()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>CIListStraight</Name>
+        <Access>Public</Access>
+        <Location left="1427" top="1963" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private readonly CCList _collection</Member>
+        <Member type="Field">private int _index</Member>
+        <Member type="Field">private ICal _currentCal</Member>
+        <Member type="Constructor">public CIListStraight(CCList cals)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IBinaryExtend</Name>
+        <Access>Public</Access>
+        <Location left="580" top="2289" />
+        <Size width="217" height="78" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">string GetExtendedBinary(int length)</Member>
+      </Entity>
       <Entity type="Interface">
         <Name>ICal</Name>
         <Access>Public</Access>
-        <Location left="885" top="1559" />
+        <Location left="856" top="2192" />
         <Size width="162" height="129" />
         <Collapsed>False</Collapsed>
         <Member type="Property">string Input { get; }</Member>
@@ -471,7 +465,7 @@
       <Entity type="Class">
         <Name>IntToBinaryCal</Name>
         <Access>Public</Access>
-        <Location left="689" top="1828" />
+        <Location left="660" top="2461" />
         <Size width="330" height="162" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private readonly int _int</Member>
@@ -484,7 +478,7 @@
       <Entity type="Class">
         <Name>BinaryToIntCal</Name>
         <Access>Public</Access>
-        <Location left="1119" top="1828" />
+        <Location left="1090" top="2461" />
         <Size width="197" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private readonly string _binary</Member>
@@ -493,123 +487,164 @@
         <Member type="Method">private int GetBinaryInt(char i)</Member>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Class">
+        <Name>CalculatorMain</Name>
+        <Access>Public</Access>
+        <Location left="816" top="1623" />
+        <Size width="294" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private readonly List&lt;string&gt; mode_names = new List&lt;string&gt;()</Member>
+        <Member type="Field">private readonly ICalCollection _calculations</Member>
+        <Member type="Field">private readonly CIListStraight _cals</Member>
+        <Member type="Constructor">CalculatorMain()</Member>
+        <Member type="Property">public ICalCollection CollectionCal { get; }</Member>
+        <Member type="Property">public CIListStraight MainCal { get; }</Member>
+        <Member type="Method">private void AddModeNames()</Member>
+        <Member type="Method">public string[] GetModes()</Member>
+        <Member type="Method">private void SetupMainIterator(object sender, EventArgs e)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Association" first="2" second="1">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1212</X>
-          <Y>1127</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1264</X>
-          <Y>1185</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Dependency" first="1" second="3">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1412</X>
-          <Y>1267</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1471</X>
-          <Y>1241</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Realization" first="0" second="3">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>1527</X>
-          <Y>1273</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="2" second="3">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="0" second="4">
+      <Relationship type="Association" first="2" second="0">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1411</X>
-          <Y>1459</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1120</X>
-          <Y>1459</Y>
-        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="4" second="5">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="4" second="8">
+      <Relationship type="Association" first="1" second="0">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>958</X>
-          <Y>1512</Y>
+          <X>396</X>
+          <Y>1918</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="1" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="1" second="11">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="11" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="4">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1183</X>
+          <Y>1760</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>958</X>
-          <Y>1534</Y>
+          <X>1235</X>
+          <Y>1818</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="8">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>929</X>
+          <Y>2145</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>929</X>
+          <Y>2167</Y>
         </BendPoint>
         <Direction>Bidirectional</Direction>
         <AssociationType>Aggregation</AssociationType>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="4" second="1">
+      <Relationship type="Association" first="6" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1073</X>
-          <Y>1425</Y>
+          <X>1382</X>
+          <Y>2092</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1153</X>
-          <Y>1305</Y>
+          <X>1091</X>
+          <Y>2092</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="6" second="5">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1498</X>
+          <Y>1906</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="5" second="8">
+      <Relationship type="Realization" first="3" second="4">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1044</X>
+          <Y>2058</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1124</X>
+          <Y>1938</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="4" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1383</X>
+          <Y>1900</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1442</X>
+          <Y>1874</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="2" second="8">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>839</X>
-          <Y>1591</Y>
+          <X>810</X>
+          <Y>2224</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="7" second="5">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Realization" first="9" second="6">
+      <Relationship type="Realization" first="9" second="7">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
@@ -617,31 +652,25 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>802</X>
-          <Y>1770</Y>
+          <X>773</X>
+          <Y>2403</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>972</X>
-          <Y>1742</Y>
+          <X>943</X>
+          <Y>2375</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="10" second="8">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1222</X>
-          <Y>1779</Y>
+          <X>1193</X>
+          <Y>2412</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>972</X>
-          <Y>1732</Y>
+          <X>943</X>
+          <Y>2365</Y>
         </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="7" second="2">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>
