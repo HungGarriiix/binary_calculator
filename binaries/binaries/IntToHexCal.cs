@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace binaries
 {
-    public class IntToHex : ICal
+    public class IntToHexCal : ICal
     {
         private readonly int _int;
         private string _hex_result;
 
-        public IntToHex(string input)
+        public IntToHexCal(string input)
         {
             CheckInput(input);
 
@@ -37,7 +37,7 @@ namespace binaries
             return true;
         }
 
-        private char ConvertIntToHex(int i)
+        private char ConvertIntToHexChar(int i)
         {
             if (i < 0 || i > 15)
                 throw new ArgumentException("The number cannot be converted to hexadecimal counterside.");
@@ -67,7 +67,7 @@ namespace binaries
             Stack<char> result_mess = new Stack<char>();
             while (divided != 0)
             {
-                result_mess.Push(ConvertIntToHex(divided % 16));
+                result_mess.Push(ConvertIntToHexChar(divided % 16));
                 divided /= 16;
             }
             _hex_result = FinalizingHexResult(result_mess);
