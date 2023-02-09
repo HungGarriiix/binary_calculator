@@ -91,11 +91,12 @@
         <Name>CalculatorProcessor</Name>
         <Access>Public</Access>
         <Location left="414" top="760" />
-        <Size width="372" height="179" />
+        <Size width="372" height="196" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public const int NO_MODE = 0</Member>
         <Member type="Field">public const int BINARY_INT_MODE = 1</Member>
         <Member type="Field">public const int INT_BINARY_MODE = 2</Member>
+        <Member type="Field">public const int INT_HEX_MODE = 3</Member>
         <Member type="Event">public static event EventHandler&lt;NotificationTriggeredEventArgs&gt; NotificationTriggered</Member>
         <Member type="Method">public static ICal MakeCalculation(string input, int mode)</Member>
         <Member type="Method">public static void SendNotification(string notification)</Member>
@@ -345,7 +346,7 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>586</X>
-          <Y>983</Y>
+          <Y>1000</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="12" second="3">

@@ -62,7 +62,7 @@
     <Compile Include="ICalCollection.cs" />
     <Compile Include="ICalIterator.cs" />
     <Compile Include="IntToBinaryCal.cs" />
-    <Compile Include="IntToHex.cs" />
+    <Compile Include="IntToHexCal.cs" />
     <Compile Include="NotificationTriggeredEventArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

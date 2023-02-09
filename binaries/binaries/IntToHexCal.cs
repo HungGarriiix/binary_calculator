@@ -46,7 +46,7 @@ namespace binaries
             char[] hex = { 'A', 'B', 'C', 'D', 'E', 'F' };
 
             if (i >= 0 && i < 10)
-                return Convert.ToChar(i);
+                return Convert.ToChar(i + 48);  // Convert the ints to Unicode characters
             if (i >= 10 && i < 16)
                 return hex[i - 10];     // Fit the integer to the index of hex chars array
 

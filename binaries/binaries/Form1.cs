@@ -74,8 +74,8 @@ namespace binaries
                     btnCalculate.Enabled = false;
                     lblBinaryLength.Visible = false;
                     nudBinaryLength.Visible = false;
-
                     break;
+
                 case CalculatorProcessor.BINARY_INT_MODE:
 
                     lblInput.Text = "Please insert a binary chain:";
@@ -83,8 +83,8 @@ namespace binaries
                     btnCalculate.Enabled = true;
                     lblBinaryLength.Visible = false;
                     nudBinaryLength.Visible = false;
-
                     break;
+
                 case CalculatorProcessor.INT_BINARY_MODE:
 
                     lblInput.Text = "Please insert an integer:";
@@ -92,8 +92,17 @@ namespace binaries
                     btnCalculate.Enabled = true;
                     lblBinaryLength.Visible = true;
                     nudBinaryLength.Visible = true;
-
                     break;
+
+                case CalculatorProcessor.INT_HEX_MODE:
+
+                    lblInput.Text = "Please insert an integer:";
+                    txbInput.Enabled = true;
+                    btnCalculate.Enabled = true;
+                    lblBinaryLength.Visible = false;
+                    nudBinaryLength.Visible = false;
+                    break;
+
                 default:
                     // Erase all data on the window
                     break;
@@ -106,14 +115,14 @@ namespace binaries
             {
                 // Change calculation main section
                 // Change comboBox first because the textboxes will be resetted if SelectedIndex changes
-                cmbModeSelection.SelectedIndex = (main.MainCal.CurrentCal is BinaryToIntCal) ? CalculatorProcessor.BINARY_INT_MODE : CalculatorProcessor.INT_BINARY_MODE;
+                cmbModeSelection.SelectedIndex = (main.MainCal.CurrentCal is IntToBinaryCal) ? CalculatorProcessor.INT_BINARY_MODE : cmbModeSelection.SelectedIndex ;
                 txbInput.Text = main.MainCal.CurrentCal.Input;
                 txbResult.Text = main.MainCal.CurrentCal.Result;
 
                 // Change nud if the result is binary
                 if (cmbModeSelection.SelectedIndex == CalculatorProcessor.INT_BINARY_MODE)
                 {
-                    nudBinaryLength.ValueChanged -= AlterBinaryChain;
+                    nudBinaryLength.ValueChanged -= AlterBinaryChain;   // Remember to shut down event to prevent nud from triggering in a meanwhile
 
                     // Change nud value from here to prevent nud from triggering the event continuously
                     nudBinaryLength.Minimum = txbResult.Text.Length;
@@ -149,7 +158,6 @@ namespace binaries
                     btnCalHistoryPrevious.Visible = true;
                     btnCalHistoryLast.Visible = true;
                 }
-
             }
         }
 
