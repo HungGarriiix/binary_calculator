@@ -30,6 +30,26 @@ namespace binaries
             SetupBinaryNumbericUpDown();
         }
 
+        private bool InputUI_Enabled
+        {
+            get { return btnCalculate.Enabled; }
+            set 
+            {
+                txbInput.Enabled = value;
+                btnCalculate.Enabled = value; 
+            }
+        }
+
+        private bool BinaryUI_Visible
+        {
+            get { return nudBinaryLength.Visible; }
+            set
+            {
+                nudBinaryLength.Visible = value;
+                lblBinaryLength.Visible = value;
+            }
+        }
+
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             main.CollectionCal.AddNewCal(CalculatorProcessor.MakeCalculation(txbInput.Text, cmbModeSelection.SelectedIndex));
@@ -64,43 +84,34 @@ namespace binaries
             txbResult.Text = String.Empty;
 
             // Settings for each modes
-            int index = cmbModeSelection.SelectedIndex;
-            switch(index)
+            switch(cmbModeSelection.SelectedIndex)
             {
                 case CalculatorProcessor.NO_MODE:
 
                     lblInput.Text = "Please insert ________:";
-                    txbInput.Enabled = false;
-                    btnCalculate.Enabled = false;
-                    lblBinaryLength.Visible = false;
-                    nudBinaryLength.Visible = false;
+                    InputUI_Enabled = false;
+                    BinaryUI_Visible = false;
                     break;
 
                 case CalculatorProcessor.BINARY_INT_MODE:
 
                     lblInput.Text = "Please insert a binary chain:";
-                    txbInput.Enabled = true;
-                    btnCalculate.Enabled = true;
-                    lblBinaryLength.Visible = false;
-                    nudBinaryLength.Visible = false;
+                    InputUI_Enabled = true;
+                    BinaryUI_Visible = false;
                     break;
 
                 case CalculatorProcessor.INT_BINARY_MODE:
 
                     lblInput.Text = "Please insert an integer:";
-                    txbInput.Enabled = true;
-                    btnCalculate.Enabled = true;
-                    lblBinaryLength.Visible = true;
-                    nudBinaryLength.Visible = true;
+                    InputUI_Enabled = true;
+                    BinaryUI_Visible = true;
                     break;
 
                 case CalculatorProcessor.INT_HEX_MODE:
 
                     lblInput.Text = "Please insert an integer:";
-                    txbInput.Enabled = true;
-                    btnCalculate.Enabled = true;
-                    lblBinaryLength.Visible = false;
-                    nudBinaryLength.Visible = false;
+                    InputUI_Enabled = true;
+                    BinaryUI_Visible = false;
                     break;
 
                 default:
@@ -115,7 +126,6 @@ namespace binaries
             {
                 // Change calculation main section
                 // Change comboBox first because the textboxes will be resetted if SelectedIndex changes
-                cmbModeSelection.SelectedIndex = (main.MainCal.CurrentCal is IntToBinaryCal) ? CalculatorProcessor.INT_BINARY_MODE : cmbModeSelection.SelectedIndex ;
                 txbInput.Text = main.MainCal.CurrentCal.Input;
                 txbResult.Text = main.MainCal.CurrentCal.Result;
 
@@ -136,28 +146,10 @@ namespace binaries
                 txbCalHistory.Text = main.MainCal.No.ToString();
                 lblCalHistory.Text = $"out of {main.MainCal.NoCalculations}";
 
-
-                if (main.MainCal.No == 1)
-                {
-                    btnCalHistoryRecently.Visible = false;
-                    btnCalHistoryNext.Visible = false;
-                    btnCalHistoryPrevious.Visible = true;
-                    btnCalHistoryLast.Visible = true;
-                }
-                else if (main.MainCal.No == main.MainCal.NoCalculations)
-                {
-                    btnCalHistoryRecently.Visible = true;
-                    btnCalHistoryNext.Visible = true;
-                    btnCalHistoryPrevious.Visible = false;
-                    btnCalHistoryLast.Visible = false;
-                }
-                else
-                {
-                    btnCalHistoryRecently.Visible = true;
-                    btnCalHistoryNext.Visible = true;
-                    btnCalHistoryPrevious.Visible = true;
-                    btnCalHistoryLast.Visible = true;
-                }
+                btnCalHistoryRecently.Enabled   = !main.MainCal.IsHead;
+                btnCalHistoryNext.Enabled       = !main.MainCal.IsHead;
+                btnCalHistoryPrevious.Enabled   = !main.MainCal.IsTail;
+                btnCalHistoryLast.Enabled       = !main.MainCal.IsTail;
             }
         }
 
@@ -190,11 +182,10 @@ namespace binaries
             lblCalHistory.Text = $"out of ___";
             txbCalHistory.ReadOnly = true;
 
-            btnCalHistoryRecently.Visible = false;
-            btnCalHistoryNext.Visible = false;
-            btnCalHistoryPrevious.Visible = false;
-            btnCalHistoryLast.Visible = false;
-            
+            btnCalHistoryRecently.Enabled = false;
+            btnCalHistoryNext.Enabled = false;
+            btnCalHistoryPrevious.Enabled = false;
+            btnCalHistoryLast.Enabled = false;
         }
 
         private void DisplayNotification(object sender, NotificationTriggeredEventArgs n)
