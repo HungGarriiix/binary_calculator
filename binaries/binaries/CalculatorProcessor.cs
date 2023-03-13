@@ -13,6 +13,7 @@ namespace binaries
         public const int BINARY_INT_MODE = 1;
         public const int INT_BINARY_MODE = 2;
         public const int INT_HEX_MODE = 3;
+        public const int HEX_INT_MODE = 4;
         public static event EventHandler<NotificationTriggeredEventArgs> NotificationTriggered;
 
         public static ICal MakeCalculation(string input, int mode)
@@ -32,6 +33,10 @@ namespace binaries
 
                     case INT_HEX_MODE:
                         cal = new IntToHexCal(input);
+                        break;
+
+                    case HEX_INT_MODE:
+                        cal = new HexToIntCal(input);
                         break;
 
                     default:

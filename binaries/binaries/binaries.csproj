@@ -57,6 +57,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HexToIntCal.cs" />
     <Compile Include="IBinaryExtend.cs" />
     <Compile Include="ICal.cs" />
     <Compile Include="ICalCollection.cs" />

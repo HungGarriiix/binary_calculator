@@ -32,6 +32,7 @@ namespace binaries
             mode_names.Add("Binary -> Integer");
             mode_names.Add("Integer -> Binary");
             mode_names.Add("Integer -> Hexadecimal");
+            mode_names.Add("Hexadecimal -> Integer");
         }
 
         public string[] GetModes()

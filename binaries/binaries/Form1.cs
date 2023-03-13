@@ -114,6 +114,12 @@ namespace binaries
                     BinaryUI_Visible = false;
                     break;
 
+                case CalculatorProcessor.HEX_INT_MODE:
+                    lblInput.Text = "Please insert a hexadecimal:";
+                    InputUI_Enabled = true;
+                    BinaryUI_Visible = false;
+                    break;
+
                 default:
                     // Erase all data on the window
                     break;
