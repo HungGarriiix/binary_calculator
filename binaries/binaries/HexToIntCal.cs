@@ -30,15 +30,20 @@ namespace binaries
             if (input == string.Empty)
                 throw new ArgumentException("The input is empty.");
 
-            Regex rx = new Regex(@"[A-F]|[0-9]+", RegexOptions.None); // find character in range A-F and 0-9
+            Regex space = new Regex(@"\s");                          // checking for spaces
+            Regex lowercase = new Regex(@"[a-z]");                   // checking for lowercase characters
+            Regex hex = new Regex(@"[^A-F0-9]+", RegexOptions.None); // find character out of range A-F and 0-9
 
-            /*foreach(char c in input)
-            {
-                if (!rx.IsMatch(input))
-                    return false;
-            }
-            return true;*/
-            return rx.IsMatch(input);
+            if (space.IsMatch(input))
+                throw new ArgumentException("Spaces is allowed in the input.");
+
+            if (lowercase.IsMatch(input))
+                throw new ArgumentException("Lowercase is prohibited in hexadecimal characters.");
+
+            if (hex.IsMatch(input))
+                throw new ArgumentException("The input is not a hexadecimal."); 
+
+            return true;
         }
 
         private int ConvertHexCharToInt(char c)
