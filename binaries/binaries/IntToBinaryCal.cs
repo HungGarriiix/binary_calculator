@@ -13,11 +13,12 @@ namespace binaries
 
         public IntToBinaryCal(string input)
         {
-            CheckInput(input);
-
-            _int = Convert.ToInt32(input);
-            _binary_result = string.Empty;
-            Calculate();
+            if(CheckInput(input))
+            {
+                _int = Convert.ToInt32(input);
+                _binary_result = string.Empty;
+                Calculate();
+            }
         }
 
         public string Input { get { return _int.ToString(); } }

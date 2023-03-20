@@ -13,11 +13,12 @@ namespace binaries
 
         public BinaryToIntCal(string input)
         {
-            CheckInput(input);
-            
-            _binary = input;
-            _int_result = 0;
-            Calculate();
+            if(CheckInput(input))
+            {
+                _binary = input;
+                _int_result = 0;
+                Calculate();
+            }
         }
 
         public string Input { get { return _binary; } }
