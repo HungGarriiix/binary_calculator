@@ -13,12 +13,13 @@ namespace binaries
 
         public IntToHexCal(string input)
         {
-            CheckInput(input);
+            if(CheckInput(input))
+            {
+                _int = Convert.ToInt32(input);
+                _hex_result = string.Empty;
 
-            _int = Convert.ToInt32(input);
-            _hex_result = string.Empty;
-
-            Calculate();
+                Calculate();
+            }
         }
 
         public string Input { get { return _int.ToString(); } }

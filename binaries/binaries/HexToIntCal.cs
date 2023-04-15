@@ -14,12 +14,13 @@ namespace binaries
 
         public HexToIntCal(string input)
         {
-            CheckInput(input);
+            if(CheckInput(input))
+            {
+                _hex = input;
+                _int_result = 0;
 
-            _hex = input;
-            _int_result = 0;
-
-            Calculate();
+                Calculate();
+            }
         }
 
         public string Input { get { return _hex; } }
