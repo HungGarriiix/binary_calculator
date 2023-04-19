@@ -33,11 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConcurrentCollections, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConcurrentHashSet.1.3.0\lib\net461\ConcurrentCollections.dll</HintPath>
+    </Reference>
     <Reference Include="DSharpPlus, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DSharpPlus.4.4.0\lib\netstandard2.0\DSharpPlus.dll</HintPath>
     </Reference>
     <Reference Include="DSharpPlus.CommandsNext, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DSharpPlus.CommandsNext.4.4.0\lib\netstandard2.0\DSharpPlus.CommandsNext.dll</HintPath>
+    </Reference>
+    <Reference Include="DSharpPlus.Interactivity, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DSharpPlus.Interactivity.4.4.0\lib\netstandard2.0\DSharpPlus.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="DSharpPlus.SlashCommands, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DSharpPlus.SlashCommands.4.4.0\lib\netstandard2.0\DSharpPlus.SlashCommands.dll</HintPath>
@@ -140,12 +146,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bot.cs" />
+    <Compile Include="Commands\CalCommand.cs" />
     <Compile Include="ConfigJSON.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\binaries.exe.config" />
+    <None Include="bin\Debug\config.json" />
+    <None Include="bin\Debug\discord_bot_api.exe.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +163,49 @@
       <Project>{4e69cee4-ee8e-44a3-bb0d-8886e7c7228c}</Project>
       <Name>binaries</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\binaries.exe" />
+    <Content Include="bin\Debug\binaries.pdb" />
+    <Content Include="bin\Debug\ConcurrentCollections.dll" />
+    <Content Include="bin\Debug\ConcurrentCollections.xml" />
+    <Content Include="bin\Debug\discord_bot_api.exe" />
+    <Content Include="bin\Debug\discord_bot_api.pdb" />
+    <Content Include="bin\Debug\DSharpPlus.CommandsNext.dll" />
+    <Content Include="bin\Debug\DSharpPlus.CommandsNext.xml" />
+    <Content Include="bin\Debug\DSharpPlus.dll" />
+    <Content Include="bin\Debug\DSharpPlus.Interactivity.dll" />
+    <Content Include="bin\Debug\DSharpPlus.Interactivity.xml" />
+    <Content Include="bin\Debug\DSharpPlus.SlashCommands.dll" />
+    <Content Include="bin\Debug\DSharpPlus.SlashCommands.xml" />
+    <Content Include="bin\Debug\DSharpPlus.xml" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Collections.Immutable.dll" />
+    <Content Include="bin\Debug\System.Collections.Immutable.xml" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Content Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\System.Threading.Channels.dll" />
+    <Content Include="bin\Debug\System.Threading.Channels.xml" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
