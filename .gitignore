@@ -19,3 +19,5 @@
 # Exported files (like compiled program)
 binaries/binaries/bin/
 binaries/binaries/obj/
+binaries/discord_bot_api/bin/
+binaries/discord_bot_api/obj/
