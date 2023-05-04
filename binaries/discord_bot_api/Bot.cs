@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using DSharpPlus.Entities;
 
 namespace discord_bot_api
 {
@@ -60,9 +61,21 @@ namespace discord_bot_api
             await Task.Delay(-1);
         }
 
-        private Task OnClientReady(DiscordClient a, ReadyEventArgs e)
+        private async Task OnClientReady(DiscordClient a, ReadyEventArgs e)
         {
-            return Task.CompletedTask;
+            var channel = await a.GetChannelAsync(1096325997076435075);
+            /*await channel.SendMessageAsync("On!").ConfigureAwait(false);*/
+            var message = new DiscordEmbedBuilder()
+            {
+                Title = "Yuuka-chan status:",
+                Description = "Calculator: :green_circle: **On!**",
+                Color = new DiscordColor("#00fd0a")
+            };
+            await channel.SendMessageAsync(message).ConfigureAwait(false);
+
+            await Task.CompletedTask;
+
+            /*return Task.CompletedTask;*/
         }
     }
 }
