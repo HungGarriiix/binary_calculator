@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace binaries
 {
-    static class CalculatorProcessor
+    public static class CalculatorProcessor
     {
         // Create constant of mode IDs
         public const int NO_MODE = 0;
