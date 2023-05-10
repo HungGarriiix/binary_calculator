@@ -22,8 +22,10 @@ namespace binaries
             }
         }
 
+        public string ModeTitle { get { return "Integer\u2081\u2080 => Hexadecimal\u2081\u2086:"; } }
         public string Input { get { return _int.ToString(); } }
         public string Result { get { return _hex_result; } }
+        public string ResultFull { get { return $"{Input} => {Result}."; } }
 
         public bool CheckInput(string input)
         {

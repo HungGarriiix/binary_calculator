@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using binaries;
+using DSharpPlus.Entities;
+using DSharpPlus.Net;
 
 namespace discord_bot_api.Commands
 {
@@ -22,7 +24,20 @@ namespace discord_bot_api.Commands
         [Command("cal")]
         public async Task Calculate(CommandContext ctx, int cal_mode, string input)
         {
-            await ctx.Channel.SendMessageAsync(CalculatorProcessor.MakeCalculation(input, cal_mode).Result).ConfigureAwait(false);
+            ICal cal = CalculatorProcessor.MakeCalculation(input, cal_mode);
+            var result = new DiscordEmbedBuilder()
+            {
+                Title = cal.ModeTitle,
+                Description = cal.ResultFull,
+                Color = DiscordColor.CornflowerBlue,
+                Author = new DiscordEmbedBuilder.EmbedAuthor()
+                {
+                    Name = $"{ctx.Member.DisplayName} #{ctx.Member.Discriminator}",
+                    IconUrl = ctx.Member.AvatarUrl
+                }
+            };
+
+            await ctx.Channel.SendMessageAsync(result).ConfigureAwait(false);
         }
     }
 }

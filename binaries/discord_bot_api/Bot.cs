@@ -64,7 +64,6 @@ namespace discord_bot_api
         private async Task OnClientReady(DiscordClient a, ReadyEventArgs e)
         {
             var channel = await a.GetChannelAsync(1096325997076435075);
-            /*await channel.SendMessageAsync("On!").ConfigureAwait(false);*/
             var message = new DiscordEmbedBuilder()
             {
                 Title = "Yuuka-chan status:",
@@ -74,8 +73,6 @@ namespace discord_bot_api
             await channel.SendMessageAsync(message).ConfigureAwait(false);
 
             await Task.CompletedTask;
-
-            /*return Task.CompletedTask;*/
         }
     }
 }

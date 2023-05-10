@@ -10,6 +10,8 @@ namespace binaries
     {
         string Result { get; }
         string Input { get; }
+        string ModeTitle { get; }
+        string ResultFull { get; }
         void Calculate();
         bool CheckInput(string input);
     }

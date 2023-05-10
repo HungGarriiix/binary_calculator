@@ -21,8 +21,10 @@ namespace binaries
             }
         }
 
+        public string ModeTitle { get { return "Integer\u2081\u2080 => Binary\u2082:"; } }
         public string Input { get { return _int.ToString(); } }
         public string Result { get { return GetDefaultResult(); } }
+        public string ResultFull { get { return $"{Input} => {Result}."; } }
 
         public bool CheckInput(string input)
         {
