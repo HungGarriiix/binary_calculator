@@ -15,20 +15,20 @@ namespace discord_bot_api.Commands
     {
         private CalculatorMain _main = new CalculatorMain();
 
-        [Command("pppp")]
+/*        [Command("pppp")]
         public async Task Ping(CommandContext ctx)
         {
             await ctx.Channel.SendMessageAsync("Pong").ConfigureAwait(false);
-        }
+        }*/
 
         [Command("cal")]
         public async Task Calculate(CommandContext ctx, int cal_mode, string input)
         {
-            ICal cal = CalculatorProcessor.MakeCalculation(input, cal_mode);
+            ICal cal = CalculatorProcessor.MakeCalculation(input, cal_mode); // this will be changed later in terms of ICal structure
             var result = new DiscordEmbedBuilder()
             {
                 Title = cal.ModeTitle,
-                Description = cal.ResultFull,
+                Description = cal.ResultFull, // main calculation result content
                 Color = DiscordColor.CornflowerBlue,
                 Author = new DiscordEmbedBuilder.EmbedAuthor()
                 {
