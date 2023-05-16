@@ -17,12 +17,18 @@ namespace discord_bot_api
 {
     public class Bot
     {
+        // main client connection
         public DiscordClient Client { get; private set; }
+        
+        // interactivity centre: emoji reactions, replies, etc.
         public InteractivityExtension Interactivity { get; private set; }
+
+        // commands centre, where to assign BaseCommandModule classes
         public CommandsNextExtension Commands { get; private set; }
 
         public async Task RunAsync()
         {
+            // JSON reader
             var json = string.Empty;
             using (var fs = File.OpenRead("config.json"))
             using (var sr = new StreamReader(fs, new UTF8Encoding(false)))
@@ -30,6 +36,7 @@ namespace discord_bot_api
 
             var configJson = JsonConvert.DeserializeObject<ConfigJSON>(json);
 
+            // Discord client main configuration (for 2 hand shake protocol)
             var config = new DiscordConfiguration()
             {
                 Token = configJson.Token,
@@ -41,9 +48,10 @@ namespace discord_bot_api
 
             Client = new DiscordClient(config);
             
-
+            // Discord events assignments
             Client.Ready += OnClientReady;
 
+            // Discord command registratiion
             var commandsConfig = new CommandsNextConfiguration()
             {
                 StringPrefixes = new string[] { configJson.Prefix },
@@ -56,6 +64,7 @@ namespace discord_bot_api
             Commands = Client.UseCommandsNext(commandsConfig);
             Commands.RegisterCommands<CalCommands>();
 
+            // Starts connecting (2 hand shake protocol)
             await Client.ConnectAsync();
 
             await Task.Delay(-1);
