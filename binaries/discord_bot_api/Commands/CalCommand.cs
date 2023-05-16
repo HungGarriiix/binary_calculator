@@ -37,7 +37,26 @@ namespace discord_bot_api.Commands
                 }
             };
 
-            await ctx.Channel.SendMessageAsync(result).ConfigureAwait(false);
+            await ctx.RespondAsync(result).ConfigureAwait(false);
+        }
+
+        [Command("cal")]
+        public async Task Calculate(CommandContext ctx, string cal_mode_1, string cal_mode_2, string input)
+        {
+            ICal cal = CalculatorProcessor.MakeCalculation(input, cal_mode_1, cal_mode_2);
+            var result = new DiscordEmbedBuilder()
+            {
+                Title = cal.ModeTitle,
+                Description = cal.ResultFull,
+                Color = DiscordColor.CornflowerBlue,
+                Author = new DiscordEmbedBuilder.EmbedAuthor()
+                {
+                    Name = $"{ctx.Member.DisplayName} #{ctx.Member.Discriminator}",
+                    IconUrl = ctx.Member.AvatarUrl
+                }
+            };
+
+            await ctx.RespondAsync(result).ConfigureAwait(false);
         }
     }
 }
