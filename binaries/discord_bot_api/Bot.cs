@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using DSharpPlus.Entities;
+using binaries;
 
 namespace discord_bot_api
 {
@@ -50,6 +51,7 @@ namespace discord_bot_api
             
             // Discord events assignments
             Client.Ready += OnClientReady;
+            CalculatorProcessor.NotificationTriggered += SendError;
 
             // Discord command registratiion
             var commandsConfig = new CommandsNextConfiguration()
@@ -82,6 +84,18 @@ namespace discord_bot_api
             await channel.SendMessageAsync(message).ConfigureAwait(false);
 
             await Task.CompletedTask;
+        }
+
+        private async void SendError(object sender, NotificationTriggeredEventArgs n)
+        {
+            var channel = await Client.GetChannelAsync(1096325997076435075);
+            var error = new DiscordEmbedBuilder()
+            {
+                Title = "***ERROR!!!!!***",
+                Description = n.PrintMessage(),
+                Color = DiscordColor.Red
+            };
+            await channel.SendMessageAsync(error).ConfigureAwait(false);
         }
     }
 }

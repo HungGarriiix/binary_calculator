@@ -38,7 +38,6 @@ namespace binaries
 
         public static ICal MakeCalculation(string input, string type_start, string type_end)
         {
-            ICal cal = null;
             // Initiate mode 
             NumType mode_start = GetNumType(type_start);
             NumType mode_end = GetNumType(type_end);
@@ -50,16 +49,16 @@ namespace binaries
                 else
                 {
                     if (mode_start == NumType.BIN && mode_end == NumType.INT)
-                        cal = new BinaryToIntCal(input);
+                        return new BinaryToIntCal(input);
 
                     if (mode_start == NumType.INT && mode_end == NumType.BIN)
-                        cal = new IntToBinaryCal(input);
+                        return new IntToBinaryCal(input);
 
                     if (mode_start == NumType.INT && mode_end == NumType.HEX)
-                        cal = new IntToHexCal(input);
+                        return new IntToHexCal(input);
 
                     if (mode_start == NumType.HEX && mode_end == NumType.INT)
-                        cal = new HexToIntCal(input);
+                        return new HexToIntCal(input);
                 } 
             }
             catch (ArgumentException ex)
@@ -67,45 +66,38 @@ namespace binaries
                 SendNotification(ex.Message);
             }
 
-            return cal;
+            return null;
                 
         }
 
         public static ICal MakeCalculation(string input, int mode)
         {
-            ICal cal = null;
-                try
+            try
+            {
+                switch (mode)
                 {
-                    switch (mode)
-                    {
-                        case BINARY_INT_MODE:
-                            cal = new BinaryToIntCal(input);
-                            break;
+                    case BINARY_INT_MODE:
+                        return new BinaryToIntCal(input);
 
-                        case INT_BINARY_MODE:
-                            cal = new IntToBinaryCal(input);
-                            break;
+                    case INT_BINARY_MODE:
+                        return new IntToBinaryCal(input);
 
-                        case INT_HEX_MODE:
-                            cal = new IntToHexCal(input);
-                            break;
+                    case INT_HEX_MODE:
+                        return new IntToHexCal(input);
 
-                        case HEX_INT_MODE:
-                            cal = new HexToIntCal(input);
-                            break;
+                    case HEX_INT_MODE:
+                        return new HexToIntCal(input);
 
-                        default:
-                            SendNotification("No mode is selected.");
-                            break;
-                    }
+                    default:
+                        SendNotification("No mode is selected.");
+                        break;
                 }
-                catch (ArgumentException ex) 
-                { 
-                    SendNotification(ex.Message); 
-                }
-                
-
-            return cal;
+            }
+            catch (ArgumentException ex) 
+            { 
+                SendNotification(ex.Message); 
+            }
+            return null;
         }
 
         public static void SendNotification(string notification)

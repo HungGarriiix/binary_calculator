@@ -14,49 +14,50 @@ namespace discord_bot_api.Commands
     public class CalCommands : BaseCommandModule
     {
         private CalculatorMain _main = new CalculatorMain();
-
-/*        [Command("pppp")]
-        public async Task Ping(CommandContext ctx)
-        {
-            await ctx.Channel.SendMessageAsync("Pong").ConfigureAwait(false);
-        }*/
+        
 
         [Command("cal")]
         public async Task Calculate(CommandContext ctx, int cal_mode, string input)
         {
             ICal cal = CalculatorProcessor.MakeCalculation(input, cal_mode); // this will be changed later in terms of ICal structure
-            var result = new DiscordEmbedBuilder()
+            if (cal != null)
             {
-                Title = cal.ModeTitle,
-                Description = cal.ResultFull, // main calculation result content
-                Color = DiscordColor.CornflowerBlue,
-                Author = new DiscordEmbedBuilder.EmbedAuthor()
+                var result = new DiscordEmbedBuilder()
                 {
-                    Name = $"{ctx.Member.DisplayName} #{ctx.Member.Discriminator}",
-                    IconUrl = ctx.Member.AvatarUrl
-                }
-            };
+                    Title = cal.ModeTitle,
+                    Description = cal.ResultFull, // main calculation result content
+                    Color = DiscordColor.CornflowerBlue,
+                    Author = new DiscordEmbedBuilder.EmbedAuthor()
+                    {
+                        Name = $"{ctx.Member.DisplayName} #{ctx.Member.Discriminator}",
+                        IconUrl = ctx.Member.AvatarUrl
+                    }
+                };
 
-            await ctx.RespondAsync(result).ConfigureAwait(false);
+                await ctx.RespondAsync(result).ConfigureAwait(false);
+            }
         }
 
         [Command("cal")]
         public async Task Calculate(CommandContext ctx, string cal_mode_1, string cal_mode_2, string input)
         {
             ICal cal = CalculatorProcessor.MakeCalculation(input, cal_mode_1, cal_mode_2);
-            var result = new DiscordEmbedBuilder()
+            if (cal != null)
             {
-                Title = cal.ModeTitle,
-                Description = cal.ResultFull,
-                Color = DiscordColor.CornflowerBlue,
-                Author = new DiscordEmbedBuilder.EmbedAuthor()
+                var result = new DiscordEmbedBuilder()
                 {
-                    Name = $"{ctx.Member.DisplayName} #{ctx.Member.Discriminator}",
-                    IconUrl = ctx.Member.AvatarUrl
-                }
-            };
+                    Title = cal.ModeTitle,
+                    Description = cal.ResultFull,
+                    Color = DiscordColor.CornflowerBlue,
+                    Author = new DiscordEmbedBuilder.EmbedAuthor()
+                    {
+                        Name = $"{ctx.Member.DisplayName} #{ctx.Member.Discriminator}",
+                        IconUrl = ctx.Member.AvatarUrl
+                    }
+                };
 
-            await ctx.RespondAsync(result).ConfigureAwait(false);
+                await ctx.RespondAsync(result).ConfigureAwait(false);
+            }
         }
     }
 }
