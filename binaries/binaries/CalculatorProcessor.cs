@@ -44,22 +44,21 @@ namespace binaries
 
             try
             {
+                // Checking function parameters
                 if (mode_start == NumType.NONE || mode_end == NumType.NONE)
-                    SendNotification("No mode is selected.");
-                else
-                {
-                    if (mode_start == NumType.BIN && mode_end == NumType.INT)
-                        return new BinaryToIntCal(input);
+                    throw new ArgumentException("One of the mode input is incorrect.");
+                if (mode_start == mode_end)
+                    throw new ArgumentException("Cannot convert input to the same type as the initial.");
 
-                    if (mode_start == NumType.INT && mode_end == NumType.BIN)
-                        return new IntToBinaryCal(input);
-
-                    if (mode_start == NumType.INT && mode_end == NumType.HEX)
-                        return new IntToHexCal(input);
-
-                    if (mode_start == NumType.HEX && mode_end == NumType.INT)
-                        return new HexToIntCal(input);
-                } 
+                // Main calculator execution
+                if (mode_start == NumType.BIN && mode_end == NumType.INT)
+                    return new BinaryToIntCal(input);
+                if (mode_start == NumType.INT && mode_end == NumType.BIN)
+                    return new IntToBinaryCal(input);
+                if (mode_start == NumType.INT && mode_end == NumType.HEX)
+                    return new IntToHexCal(input);
+                if (mode_start == NumType.HEX && mode_end == NumType.INT)
+                    return new HexToIntCal(input);
             }
             catch (ArgumentException ex)
             {
@@ -89,8 +88,7 @@ namespace binaries
                         return new HexToIntCal(input);
 
                     default:
-                        SendNotification("No mode is selected.");
-                        break;
+                        throw new ArgumentException("No mode is selected.");
                 }
             }
             catch (ArgumentException ex) 
