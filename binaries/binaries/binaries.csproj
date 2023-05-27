@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryToHexCal.cs" />
     <Compile Include="BinaryToIntCal.cs" />
     <Compile Include="CalculatorMain.cs" />
     <Compile Include="CalculatorProcessor.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HexToBinaryCal.cs" />
     <Compile Include="HexToIntCal.cs" />
     <Compile Include="IBinaryExtend.cs" />
     <Compile Include="ICal.cs" />

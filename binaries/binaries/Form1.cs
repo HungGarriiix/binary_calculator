@@ -93,7 +93,7 @@ namespace binaries
                     BinaryUI_Visible = false;
                     break;
 
-                case CalculatorProcessor.BINARY_INT_MODE:
+                case CalculatorProcessor.BIN_INT_MODE:
 
                     lblInput.Text = "Please insert a binary chain:";
                     InputUI_Enabled = true;

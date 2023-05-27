@@ -9,5 +9,6 @@ namespace binaries
     public interface IBinaryExtend
     {
         string GetExtendedBinary(int length);
+        int GetBinaryChainLength(string input, int required_length);
     }
 }

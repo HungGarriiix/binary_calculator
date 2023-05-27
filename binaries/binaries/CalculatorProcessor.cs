@@ -10,10 +10,12 @@ namespace binaries
     {
         // Create constant of mode IDs
         public const int NO_MODE = 0;
-        public const int BINARY_INT_MODE = 1;
+        public const int BIN_INT_MODE = 1;
         public const int INT_BINARY_MODE = 2;
         public const int INT_HEX_MODE = 3;
         public const int HEX_INT_MODE = 4;
+        public const int BIN_HEX_MODE = 5;
+        public const int HEX_BIN_MODE = 6;
         public static event EventHandler<NotificationTriggeredEventArgs> NotificationTriggered;
 
         public enum NumType { NONE, INT, BIN, HEX }
@@ -59,6 +61,10 @@ namespace binaries
                     return new IntToHexCal(input);
                 if (mode_start == NumType.HEX && mode_end == NumType.INT)
                     return new HexToIntCal(input);
+                if (mode_start == NumType.BIN && mode_end == NumType.HEX)
+                    return new BinaryToHexCal(input);
+                if (mode_start == NumType.HEX && mode_end == NumType.BIN)
+                    return new HexToBinaryCal(input);
             }
             catch (ArgumentException ex)
             {
@@ -75,7 +81,7 @@ namespace binaries
             {
                 switch (mode)
                 {
-                    case BINARY_INT_MODE:
+                    case BIN_INT_MODE:
                         return new BinaryToIntCal(input);
 
                     case INT_BINARY_MODE:
@@ -86,6 +92,12 @@ namespace binaries
 
                     case HEX_INT_MODE:
                         return new HexToIntCal(input);
+
+                    case BIN_HEX_MODE:
+                        return new BinaryToHexCal(input);
+
+                    case HEX_BIN_MODE:
+                        return new HexToBinaryCal(input);
 
                     default:
                         throw new ArgumentException("No mode is selected.");

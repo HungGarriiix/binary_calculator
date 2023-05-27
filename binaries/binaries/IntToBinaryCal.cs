@@ -75,7 +75,7 @@ namespace binaries
             }
         }
 
-        private int GetBinaryChainLength(string input, int required_length)
+        public int GetBinaryChainLength(string input, int required_length)
         {
             int threshold = (input.Length < required_length) ? required_length : input.Length;
             while (threshold % 4 != 0) threshold++;
