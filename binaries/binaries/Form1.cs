@@ -100,7 +100,7 @@ namespace binaries
                     BinaryUI_Visible = false;
                     break;
 
-                case CalculatorProcessor.INT_BINARY_MODE:
+                case CalculatorProcessor.INT_BIN_MODE:
 
                     lblInput.Text = "Please insert an integer:";
                     InputUI_Enabled = true;
@@ -136,7 +136,7 @@ namespace binaries
                 txbResult.Text = main.MainCal.CurrentCal.Result;
 
                 // Change nud if the result is binary
-                if (cmbModeSelection.SelectedIndex == CalculatorProcessor.INT_BINARY_MODE)
+                if (cmbModeSelection.SelectedIndex == CalculatorProcessor.INT_BIN_MODE)
                 {
                     nudBinaryLength.ValueChanged -= AlterBinaryChain;   // Remember to shut down event to prevent nud from triggering in a meanwhile
 

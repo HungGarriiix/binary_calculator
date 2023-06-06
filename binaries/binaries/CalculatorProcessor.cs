@@ -11,7 +11,7 @@ namespace binaries
         // Create constant of mode IDs
         public const int NO_MODE = 0;
         public const int BIN_INT_MODE = 1;
-        public const int INT_BINARY_MODE = 2;
+        public const int INT_BIN_MODE = 2;
         public const int INT_HEX_MODE = 3;
         public const int HEX_INT_MODE = 4;
         public const int BIN_HEX_MODE = 5;
@@ -84,7 +84,7 @@ namespace binaries
                     case BIN_INT_MODE:
                         return new BinaryToIntCal(input);
 
-                    case INT_BINARY_MODE:
+                    case INT_BIN_MODE:
                         return new IntToBinaryCal(input);
 
                     case INT_HEX_MODE:
