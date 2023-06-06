@@ -13,19 +13,19 @@ namespace discord_bot_api.Commands
 {
     public class CalCommands : BaseCommandModule
     {
-        private CalculatorMain _main = new CalculatorMain();
-        
+        private CalculatorMain _main = new CalculatorMain("Test");  // Lemme think how to get the user's names
 
         [Command("cal")]
         public async Task Calculate(CommandContext ctx, int cal_mode, string input)
         {
-            ICal cal = CalculatorProcessor.MakeCalculation(input, cal_mode); // this will be changed later in terms of ICal structure
-            if (cal != null)
+            _main.CollectionCal.AddNewCal(CalculatorProcessor.MakeCalculation(input, cal_mode));
+            ICal current_cal = _main.MainCal.CurrentCal;
+            if (current_cal != null)
             {
-                var result = new DiscordEmbedBuilder()
+                var result = new DiscordEmbedBuilder()  // main calculation result content
                 {
-                    Title = cal.ModeTitle,
-                    Description = cal.ResultFull, // main calculation result content
+                    Title = current_cal.ModeTitle,
+                    Description = current_cal.ResultFull, 
                     Color = DiscordColor.CornflowerBlue,
                     Author = new DiscordEmbedBuilder.EmbedAuthor()
                     {
@@ -41,13 +41,14 @@ namespace discord_bot_api.Commands
         [Command("cal")]
         public async Task Calculate(CommandContext ctx, string cal_mode_1, string cal_mode_2, string input)
         {
-            ICal cal = CalculatorProcessor.MakeCalculation(input, cal_mode_1, cal_mode_2);
-            if (cal != null)
+            _main.CollectionCal.AddNewCal(CalculatorProcessor.MakeCalculation(input, cal_mode_1, cal_mode_2));
+            ICal current_cal = _main.MainCal.CurrentCal;
+            if (current_cal != null)
             {
-                var result = new DiscordEmbedBuilder()
+                var result = new DiscordEmbedBuilder()  // main calculation result content
                 {
-                    Title = cal.ModeTitle,
-                    Description = cal.ResultFull,
+                    Title = current_cal.ModeTitle,
+                    Description = current_cal.ResultFull,
                     Color = DiscordColor.CornflowerBlue,
                     Author = new DiscordEmbedBuilder.EmbedAuthor()
                     {

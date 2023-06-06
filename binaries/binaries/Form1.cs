@@ -19,7 +19,7 @@ namespace binaries
         public Form1()
         {
             InitializeComponent();
-            main = new CalculatorMain();
+            main = new CalculatorMain("Admin");
 
             BindingModeSelectionBox();
             SetupHistorySection();
