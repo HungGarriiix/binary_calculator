@@ -21,3 +21,5 @@ binaries/binaries/bin/
 binaries/binaries/obj/
 binaries/discord_bot_api/bin/
 binaries/discord_bot_api/obj/
+binaries/dotnet_core_version/bin/
+binaries/dotnet_core_version/obj/
