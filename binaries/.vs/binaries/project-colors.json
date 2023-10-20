@@ -20,7 +20,22 @@
       "ProjectGuid": "c49833db-bcbb-4c3f-902b-12fe225bb794",
       "DisplayName": "discord_bot_api",
       "ColorIndex": 2
+    },
+    "3b947a9b-850d-4ff4-94ce-8efd0a80b0b6": {
+      "ProjectGuid": "3b947a9b-850d-4ff4-94ce-8efd0a80b0b6",
+      "DisplayName": "dotnet_core_version",
+      "ColorIndex": 3
+    },
+    "6cb61e7b-2e55-4ca4-8c0b-ab9d3883c815": {
+      "ProjectGuid": "6cb61e7b-2e55-4ca4-8c0b-ab9d3883c815",
+      "DisplayName": "binaries_wpf_dotnet",
+      "ColorIndex": 4
+    },
+    "9d555cf2-9a76-4307-86ce-d1feeb7c9d82": {
+      "ProjectGuid": "9d555cf2-9a76-4307-86ce-d1feeb7c9d82",
+      "DisplayName": "discord_bot_api_dotnet",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 6
 }
