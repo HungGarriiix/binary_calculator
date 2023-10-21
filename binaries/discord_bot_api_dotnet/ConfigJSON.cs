@@ -10,8 +10,8 @@ namespace discord_bot_api_dotnet
     public struct ConfigJSON
     {
         [JsonProperty("token")]
-        public string Token { get; private set; }
+        public string Token { get; set; }
         [JsonProperty("prefix")]
-        public string Prefix { get; private set; }
+        public string Prefix { get; set; }
     }
 }

@@ -30,12 +30,20 @@ namespace discord_bot_api_dotnet
         public async Task RunAsync()
         {
             // JSON reader
-            var json = string.Empty;
+            /*var json = string.Empty;
             using (var fs = File.OpenRead("config.json"))
             using (var sr = new StreamReader(fs, new UTF8Encoding(false)))
-                json = await sr.ReadToEndAsync();
+                json = await sr.ReadToEndAsync();*/
 
-            var configJson = JsonConvert.DeserializeObject<ConfigJSON>(json);
+            // Get environment variable directly from OS
+            /*            var json = Environment.GetEnvironmentVariable("yuuka-chan");*/
+            var configJson = new ConfigJSON()
+            {
+                Token = Environment.GetEnvironmentVariable("token"),
+                Prefix = Environment.GetEnvironmentVariable("prefix")
+            };
+
+/*            var configJson = JsonConvert.DeserializeObject<ConfigJSON>(json);*/
 
             // Discord client main configuration (for 2 hand shake protocol)
             var config = new DiscordConfiguration()
