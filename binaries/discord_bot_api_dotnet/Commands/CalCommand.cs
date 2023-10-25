@@ -1,13 +1,7 @@
-﻿using DSharpPlus.CommandsNext;
+﻿using binaries_cal.Logics;
+using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DSharpPlus.Entities;
-using DSharpPlus.Net;
-using discord_bot_api_dotnet.Logics;
 
 namespace discord_bot_api_dotnet.Commands
 {
@@ -25,7 +19,7 @@ namespace discord_bot_api_dotnet.Commands
                 var result = new DiscordEmbedBuilder()  // main calculation result content
                 {
                     Title = current_cal.ModeTitle,
-                    Description = current_cal.ResultFull, 
+                    Description = current_cal.ResultFull,
                     Color = DiscordColor.CornflowerBlue,
                     Author = new DiscordEmbedBuilder.EmbedAuthor()
                     {

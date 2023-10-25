@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace discord_bot_api_dotnet.Logics
+namespace binaries_cal.Logics
 {
     public class IntToBinaryCal : ICal, IBinaryExtend
     {

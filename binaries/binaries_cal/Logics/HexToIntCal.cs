@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace discord_bot_api_dotnet.Logics
+namespace binaries_cal.Logics
 {
     public class HexToIntCal : ICal
     {

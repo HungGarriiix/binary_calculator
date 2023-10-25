@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace discord_bot_api_dotnet.Logics
+namespace binaries_cal.Logics
 {
     // Each users get 1 instance of CalculatorMain to interact with
     public class CalculatorMain

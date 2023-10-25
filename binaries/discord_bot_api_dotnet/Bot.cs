@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using DSharpPlus.Entities;
-using discord_bot_api_dotnet.Logics;
+using binaries_cal.Logics;
 
 namespace discord_bot_api_dotnet
 {
