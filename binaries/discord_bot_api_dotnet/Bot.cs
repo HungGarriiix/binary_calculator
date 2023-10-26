@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using DSharpPlus.Entities;
 using binaries_cal.Logics;
+using binaries_cal.Events;
 
 namespace discord_bot_api_dotnet
 {

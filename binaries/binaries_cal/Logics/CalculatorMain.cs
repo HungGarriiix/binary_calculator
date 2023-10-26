@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using binaries_cal.Collections;
 
 namespace binaries_cal.Logics
 {

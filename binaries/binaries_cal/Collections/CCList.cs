@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using binaries_cal.Calculations;
+using binaries_cal.Logics;
 
-namespace binaries_wpf_dotnet.Logics
+namespace binaries_cal.Collections
 {
     public class CCList : ICalCollection
     {
@@ -21,7 +23,7 @@ namespace binaries_wpf_dotnet.Logics
             _cals = cals;
         }
 
-        public void AddNewCal (ICal cal)
+        public void AddNewCal(ICal cal)
         {
             if (cal != null)
             {

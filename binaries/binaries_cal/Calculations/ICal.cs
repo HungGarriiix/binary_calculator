@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace binaries_wpf_dotnet.Logics
+namespace binaries_cal.Calculations
 {
     public interface ICal
     {

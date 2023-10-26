@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace binaries_wpf_dotnet.Logics
+namespace binaries_cal.Calculations
 {
     public class IntToBinaryCal : ICal, IBinaryExtend
     {
@@ -13,7 +13,7 @@ namespace binaries_wpf_dotnet.Logics
 
         public IntToBinaryCal(string input)
         {
-            if(CheckInput(input))
+            if (CheckInput(input))
             {
                 _int = Convert.ToInt32(input);
                 _binary_result = string.Empty;
@@ -35,7 +35,7 @@ namespace binaries_wpf_dotnet.Logics
                 throw new ArgumentException("The input is not an integer.");
             if (result < 0)
                 throw new ArgumentException("The input must not be negative.");
-            
+
             return true;
         }
 
@@ -77,7 +77,7 @@ namespace binaries_wpf_dotnet.Logics
 
         public int GetBinaryChainLength(string input, int required_length)
         {
-            int threshold = (input.Length < required_length) ? required_length : input.Length;
+            int threshold = input.Length < required_length ? required_length : input.Length;
             while (threshold % 4 != 0) threshold++;
             return threshold;
         }

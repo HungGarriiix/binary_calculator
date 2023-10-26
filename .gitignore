@@ -21,3 +21,5 @@ binaries/binaries_wpf_dotnet/bin/
 binaries/binaries_wpf_dotnet/obj/
 binaries/discord_bot_api_dotnet/bin/
 binaries/discord_bot_api_dotnet/obj/
+binaries/binaries_cal/bin/
+binaries/binaries_cal/obj/

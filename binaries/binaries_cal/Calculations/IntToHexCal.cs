@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace binaries_cal.Logics
+namespace binaries_cal.Calculations
 {
     public class IntToHexCal : ICal
     {
@@ -13,7 +13,7 @@ namespace binaries_cal.Logics
 
         public IntToHexCal(string input)
         {
-            if(CheckInput(input))
+            if (CheckInput(input))
             {
                 _int = Convert.ToInt32(input);
                 _hex_result = string.Empty;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace binaries_wpf_dotnet.Logics
+namespace binaries_cal.Calculations
 {
     public class HexToBinaryCal : ICal, IBinaryExtend
     {
@@ -68,8 +68,8 @@ namespace binaries_wpf_dotnet.Logics
             int example = i;
             foreach (int b in bin_arr)
             {
-                bin += (example - b >= 0) ? "1" : "0";  // if the subtraction result is not negative, register 1 to binary and accept the subtraction
-                example -= (example - b >= 0) ? b : 0;  // if the subtraction result is negative, register 0 to binary and not accept the subtraction
+                bin += example - b >= 0 ? "1" : "0";  // if the subtraction result is not negative, register 1 to binary and accept the subtraction
+                example -= example - b >= 0 ? b : 0;  // if the subtraction result is negative, register 0 to binary and not accept the subtraction
             }
 
             return bin;
@@ -77,7 +77,7 @@ namespace binaries_wpf_dotnet.Logics
 
         public int GetBinaryChainLength(string input, int required_length)
         {
-            int threshold = (input.Length < required_length) ? required_length : input.Length;
+            int threshold = input.Length < required_length ? required_length : input.Length;
             while (threshold % 4 != 0) threshold++;
             return threshold;
         }
@@ -108,7 +108,7 @@ namespace binaries_wpf_dotnet.Logics
 
         public void Calculate()
         {
-            foreach(char c in _hex)
+            foreach (char c in _hex)
                 _bin_result += Get4BitBinaryFromInt(ConvertHexCharToInt(c)); // 1 char from hex input = 4-bit binary
         }
     }

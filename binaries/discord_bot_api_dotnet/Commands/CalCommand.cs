@@ -1,4 +1,5 @@
-﻿using binaries_cal.Logics;
+﻿using binaries_cal.Calculations;
+using binaries_cal.Logics;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;

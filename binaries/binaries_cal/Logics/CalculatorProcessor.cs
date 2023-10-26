@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using binaries_cal.Calculations;
+using binaries_cal.Events;
 
 namespace binaries_cal.Logics
 {

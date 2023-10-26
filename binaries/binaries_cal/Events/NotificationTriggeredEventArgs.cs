@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace binaries_wpf_dotnet.Logics
+namespace binaries_cal.Events
 {
     public class NotificationTriggeredEventArgs : EventArgs
     {
-        public NotificationTriggeredEventArgs(string message): base()
+        public NotificationTriggeredEventArgs(string message) : base()
         {
             Message = message;
         }

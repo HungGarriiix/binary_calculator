@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using binaries_cal.Calculations;
 
-namespace binaries_wpf_dotnet.Logics
+namespace binaries_cal.Collections
 {
     public class CIListStraight : ICalIterator
     {
@@ -19,8 +20,8 @@ namespace binaries_wpf_dotnet.Logics
             if (cals.GetNumberOfCals() != 0) No = 1;
         }
 
-        public int No 
-        { 
+        public int No
+        {
             get { return _index; }
             private set
             {
@@ -29,8 +30,8 @@ namespace binaries_wpf_dotnet.Logics
             }
         }
 
-        public ICal CurrentCal 
-        { 
+        public ICal CurrentCal
+        {
             get { return _currentCal; }
             private set
             {

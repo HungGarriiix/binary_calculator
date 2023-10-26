@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace binaries_cal.Logics
+namespace binaries_cal.Calculations
 {
     public class BinaryToIntCal : ICal
     {
@@ -13,7 +13,7 @@ namespace binaries_cal.Logics
 
         public BinaryToIntCal(string input)
         {
-            if(CheckInput(input))
+            if (CheckInput(input))
             {
                 _binary = input;
                 _int_result = 0;
@@ -45,18 +45,18 @@ namespace binaries_cal.Logics
 
         private int GetBinaryInt(char i)
         {
-            return (i == '0') ? 0 : 1;
+            return i == '0' ? 0 : 1;
         }
 
-/*        private int GetBinaryPower(int power)
-        {
-            int powered = 1;
-            for (int i = 0; i < power; i++)
-            {
-                powered *= 2;
-            }
-            return powered;
-        }*/
+        /*        private int GetBinaryPower(int power)
+                {
+                    int powered = 1;
+                    for (int i = 0; i < power; i++)
+                    {
+                        powered *= 2;
+                    }
+                    return powered;
+                }*/
 
         public void Calculate()
         {

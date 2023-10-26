@@ -1,4 +1,6 @@
-using binaries_wpf_dotnet.Logics;
+using binaries_cal.Logics;
+using binaries_cal.Events;
+using binaries_cal.Calculations;
 
 namespace binaries_wpf_dotnet
 {

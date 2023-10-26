@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace binaries_wpf_dotnet.Logics
+namespace binaries_cal.Calculations
 {
     public class BinaryToHexCal : ICal, IBinaryExtend
     {
@@ -48,7 +48,7 @@ namespace binaries_wpf_dotnet.Logics
 
         private int GetBinaryInt(char i)
         {
-            return (i == '0') ? 0 : 1;
+            return i == '0' ? 0 : 1;
         }
 
         private char ConvertBinToHexChar(string b)
@@ -59,7 +59,7 @@ namespace binaries_wpf_dotnet.Logics
             // Convert binary to integer
             int i = 0;
             int bas = 1;
-            for(int z = 3; z >= 0; z--)
+            for (int z = 3; z >= 0; z--)
             {
                 i += GetBinaryInt(b[z]) * bas;
                 bas *= 2;
@@ -78,7 +78,7 @@ namespace binaries_wpf_dotnet.Logics
 
         public int GetBinaryChainLength(string input, int required_length)
         {
-            int threshold = (input.Length < required_length) ? required_length : input.Length;
+            int threshold = input.Length < required_length ? required_length : input.Length;
             while (threshold % 4 != 0) threshold++;
             return threshold;
         }
@@ -117,14 +117,14 @@ namespace binaries_wpf_dotnet.Logics
             for (int i = 0; i < _bin.Length; i++)
             {
                 tracer += _bin[i];
-                if (i%4 == 3)   // Cuts the binary string if the length reaches to 4
+                if (i % 4 == 3)   // Cuts the binary string if the length reaches to 4
                 {
                     bin_4_bits.Enqueue(tracer);
                     tracer = string.Empty;
                 }
             }
 
-            while(bin_4_bits.Count > 0)
+            while (bin_4_bits.Count > 0)
                 _hex_result += ConvertBinToHexChar(bin_4_bits.Dequeue());
         }
     }

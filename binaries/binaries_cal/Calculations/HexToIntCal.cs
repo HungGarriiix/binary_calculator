@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace binaries_cal.Logics
+namespace binaries_cal.Calculations
 {
     public class HexToIntCal : ICal
     {
@@ -14,7 +14,7 @@ namespace binaries_cal.Logics
 
         public HexToIntCal(string input)
         {
-            if(CheckInput(input))
+            if (CheckInput(input))
             {
                 _hex = input;
                 _int_result = 0;
@@ -44,7 +44,7 @@ namespace binaries_cal.Logics
                 throw new ArgumentException("Lowercase is prohibited in hexadecimal characters.");
 
             if (hex.IsMatch(input))
-                throw new ArgumentException("The input is not a hexadecimal."); 
+                throw new ArgumentException("The input is not a hexadecimal.");
 
             return true;
         }
