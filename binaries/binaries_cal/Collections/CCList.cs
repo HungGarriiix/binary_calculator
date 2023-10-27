@@ -30,6 +30,8 @@ namespace binaries_cal.Collections
                 _cals.Insert(0, cal);
                 OnCollectionChange();
             }
+            else
+                throw new Exception("");
         }
 
         public ICal GetCalculation(int index)

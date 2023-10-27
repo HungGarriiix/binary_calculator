@@ -97,6 +97,7 @@ namespace discord_bot_api_dotnet
                 Color = DiscordColor.Red
             };
             await channel.SendMessageAsync(error).ConfigureAwait(false);
+            
         }
     }
 }
