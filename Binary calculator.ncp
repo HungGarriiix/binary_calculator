@@ -79,7 +79,7 @@
       <Entity type="Interface">
         <Name>IBinaryExtend</Name>
         <Access>Public</Access>
-        <Location left="563" top="1635" />
+        <Location left="690" top="1632" />
         <Size width="217" height="78" />
         <Collapsed>False</Collapsed>
         <Member type="Method">string GetExtendedBinary(int length)</Member>
@@ -288,8 +288,8 @@
           <Y>1671</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>810</X>
-          <Y>1671</Y>
+          <X>937</X>
+          <Y>1668</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="5" second="7">
@@ -456,8 +456,8 @@
           <Y>896</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>510</X>
-          <Y>1673</Y>
+          <X>637</X>
+          <Y>1670</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="15" second="7">
@@ -480,8 +480,8 @@
           <Y>1915</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>707</X>
-          <Y>1745</Y>
+          <X>834</X>
+          <Y>1742</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="16" second="7">
@@ -504,8 +504,8 @@
           <Y>1989</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>658</X>
-          <Y>1764</Y>
+          <X>785</X>
+          <Y>1761</Y>
         </BendPoint>
       </Relationship>
     </Relationships>
@@ -1076,6 +1076,275 @@
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Wallet</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Person</Name>
+        <Access>Public</Access>
+        <Location left="761" top="816" />
+        <Size width="162" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int _id</Member>
+        <Member type="Field">private string _name</Member>
+        <Member type="Field">private List&lt;Contact&gt; _contacts</Member>
+        <Member type="Constructor">public Person()</Member>
+        <Member type="Method">public void CreateContactInfo()</Member>
+        <Member type="Method">public void UpdateContactInfo()</Member>
+        <Member type="Method">public void DeleteContactInfo()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Spending</Name>
+        <Access>Public</Access>
+        <Location left="1083" top="816" />
+        <Size width="162" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Person _loaned</Member>
+        <Member type="Field">private List&lt;ItemStack&gt; _itemList</Member>
+        <Member type="Field">private float _moneySpent</Member>
+        <Member type="Field">private string _description</Member>
+        <Member type="Field">private bool _isPaid</Member>
+        <Member type="Constructor">public Spending()</Member>
+        <Member type="Method">public void ConfirmPayment()</Member>
+        <Member type="Method">public void UpdatePayment()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Bill</Name>
+        <Access>Public</Access>
+        <Location left="761" top="569" />
+        <Size width="184" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Date _date</Member>
+        <Member type="Field">private string _description</Member>
+        <Member type="Field">private float _total</Member>
+        <Member type="Field">private Wallet _walletUsed</Member>
+        <Member type="Constructor">public Bill()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Wallet</Name>
+        <Access>Public</Access>
+        <Location left="487" top="569" />
+        <Size width="162" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private float _balance</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>WalletManager</Name>
+        <Access>Public</Access>
+        <Location left="487" top="300" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private User _user</Member>
+        <Member type="Field">private List&lt;Wallet&gt; _wallets</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Contact</Name>
+        <Access>Public</Access>
+        <Location left="761" top="1092" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private ContactType _contactType</Member>
+        <Member type="Field">private string _profileName</Member>
+        <Member type="Field">private string _contactInfo</Member>
+        <Member type="Constructor">public Contact()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>ContactType</Name>
+        <Access>Public</Access>
+        <Location left="487" top="1092" />
+        <Size width="162" height="61" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Class">
+        <Name>User</Name>
+        <Access>Public</Access>
+        <Location left="487" top="816" />
+        <Size width="162" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Person _user</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>LoanManager</Name>
+        <Access>Public</Access>
+        <Location left="1083" top="300" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private User _user</Member>
+        <Member type="Field">private List&lt;Loan&gt; _loans</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Loan</Name>
+        <Access>Public</Access>
+        <Location left="1083" top="569" />
+        <Size width="162" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Bill _billToLoan</Member>
+        <Member type="Field">private List&lt;Spending&gt; _spendings</Member>
+        <Member type="Field">private bool _paymentCompleted</Member>
+        <Member type="Constructor">public Loan()</Member>
+        <Member type="Method">public void AddAdditionalSpendings()</Member>
+        <Member type="Method">public void DeleteSpending()</Member>
+        <Member type="Method">public void UpdateSpending()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>BillManager</Name>
+        <Access>Public</Access>
+        <Location left="761" top="300" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private User _user</Member>
+        <Member type="Field">private List&lt;Bill&gt; _bills</Member>
+        <Member type="Constructor">public BillManager()</Member>
+        <Member type="Method">public void DeductWalletBalance()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ItemStack</Name>
+        <Access>Public</Access>
+        <Location left="1083" top="1092" />
+        <Size width="162" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private string _name</Member>
+        <Member type="Field">private int _quantity</Member>
+        <Member type="Field">private float _singlePrice</Member>
+        <Member type="Field">private float _totalPrice</Member>
+        <Member type="Constructor">public ItemStack()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="2" second="9">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="3">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="10" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="8" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1163</X>
+          <Y>544</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="5" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="9" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="11">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>310</X>
+          <Y>871</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>568</X>
+          <Y>207</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>312</X>
+          <Y>870</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>843</X>
+          <Y>206</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="8">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>312</X>
+          <Y>870</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1157</X>
+          <Y>205</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
