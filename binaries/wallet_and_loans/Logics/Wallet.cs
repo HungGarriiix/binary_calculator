@@ -13,6 +13,20 @@ namespace wallet_and_loans.Logics
 
         }
 
-        public float Balance { get; set; }
+
+        public string Name { get; set; } = "";
+        public float Balance { get; set; } = 0;
+
+        public void AddBalance (float balance) 
+        {
+            Balance += balance;
+        }
+
+        public void DeductBalance(float balance) 
+        {
+            Balance -= balance;
+        }
+
+
     }
 }

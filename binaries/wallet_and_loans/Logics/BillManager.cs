@@ -8,17 +8,24 @@ namespace wallet_and_loans.Logics
 {
     public class BillManager
     {
-        public BillManager() 
+        public BillManager(User user) 
         {
 
         }
 
-        public User MainUser { get; set; }
-        public List<Bill> BillList { get; set; }
+        public User MainUser { get; private set; }
+        public List<Bill> BillList { get; set; } = new List<Bill>();
 
-        public void DeductWalletBalance()
+        public void AddBill(Bill bill)
         {
+            BillList.Add(bill);
+            bill.WalletUsed.DeductBalance(bill.Total);
+        }
 
+        public void RemoveBill(Bill bill) 
+        {
+            BillList.Remove(bill);
+            bill.WalletUsed.AddBalance(bill.Total);
         }
     }
 }
