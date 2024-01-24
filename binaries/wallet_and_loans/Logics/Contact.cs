@@ -13,8 +13,8 @@ namespace wallet_and_loans.Logics
 
         }
 
-        public ContactType TypeOfContact { get; set; }
-        public string ProfileName { get; set; }
-        public string ContactInfo { get; set; }
+        public ContactType TypeOfContact { get; set; } = ContactType.IN_PERSON;
+        public string ProfileName { get; set; } = string.Empty;
+        public string ContactInfo { get; set; } = string.Empty;
     }
 }

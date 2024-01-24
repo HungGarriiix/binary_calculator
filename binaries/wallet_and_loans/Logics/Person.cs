@@ -19,22 +19,33 @@ namespace wallet_and_loans.Logics
 
         public void AddContactInfo(Contact contact) 
         {
-
+            foreach(Contact main_cont in Contacts) 
+            {
+                if (main_cont.TypeOfContact == contact.TypeOfContact) throw new Exception("The contact exists.");
+            }
+            Contacts.Add(contact);
         }
 
-        public void GetContactInfo()
+        public Contact GetContactInfoWithType(ContactType type)
         {
+            foreach (Contact contact in Contacts)
+            {
+                if (contact.TypeOfContact == type) return contact;
+            }
 
+            throw new Exception("This contact type has not been registered.");
         }
 
-        public void UpdateContactInfo()
+        public void UpdateContactInfo(Contact updated_contact)
         {
-
+            Contact contact = GetContactInfoWithType(updated_contact.TypeOfContact);
+            contact.ContactInfo = updated_contact.ContactInfo;
+            contact.ProfileName = updated_contact.ProfileName; 
         }
 
-        public void DeleteContactInfo()
+        public void DeleteContactInfoWithType(ContactType type)
         {
-
+            Contacts.Remove(GetContactInfoWithType(type));
         }
     }
 }
