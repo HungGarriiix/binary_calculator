@@ -8,5 +8,6 @@ namespace wallet_and_loans.Logics
 {
     public enum ContactType
     {
+        IN_PERSON
     }
 }
