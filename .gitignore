@@ -25,3 +25,5 @@ binaries/binaries_cal/bin/
 binaries/binaries_cal/obj/
 binaries/wallet_and_loans/bin/
 binaries/wallet_and_loans/obj/
+binaries/wallet_and_loans_test/bin/
+binaries/wallet_and_loans_test/obj/
