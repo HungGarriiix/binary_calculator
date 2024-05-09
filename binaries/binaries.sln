@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "discord_bot_api_dotnet", "d
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "binaries_cal", "binaries_cal\binaries_cal.csproj", "{CC882D34-2857-4866-81F8-7986445D3441}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wallet_and_loans", "wallet_and_loans\wallet_and_loans.csproj", "{C09E899F-474C-4E82-98CF-FC9FF05B1879}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wallet_and_loans", "wallet_and_loans\wallet_and_loans.csproj", "{C09E899F-474C-4E82-98CF-FC9FF05B1879}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "discord_main_api_gate", "discord_main_api_gate\discord_main_api_gate.csproj", "{6A0C074B-FA93-413C-9395-EF9D11BE2E36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wallet_and_loans_test", "wallet_and_loans_test\wallet_and_loans_test.csproj", "{38C583B1-8BE5-4576-BF71-54B95B60328C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,30 @@ Global
 		{C09E899F-474C-4E82-98CF-FC9FF05B1879}.Release|x64.Build.0 = Release|Any CPU
 		{C09E899F-474C-4E82-98CF-FC9FF05B1879}.Release|x86.ActiveCfg = Release|Any CPU
 		{C09E899F-474C-4E82-98CF-FC9FF05B1879}.Release|x86.Build.0 = Release|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Debug|x64.Build.0 = Debug|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Debug|x86.Build.0 = Debug|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Release|x64.ActiveCfg = Release|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Release|x64.Build.0 = Release|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Release|x86.ActiveCfg = Release|Any CPU
+		{6A0C074B-FA93-413C-9395-EF9D11BE2E36}.Release|x86.Build.0 = Release|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Debug|x64.Build.0 = Debug|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Debug|x86.Build.0 = Debug|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Release|x64.ActiveCfg = Release|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Release|x64.Build.0 = Release|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Release|x86.ActiveCfg = Release|Any CPU
+		{38C583B1-8BE5-4576-BF71-54B95B60328C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

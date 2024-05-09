@@ -8,9 +8,17 @@ namespace wallet_and_loans.Logics
 {
     public class Person
     {
-        public Person()
+        public Person(int id, string name)
         {
+            ID = id;
+            Name = name;
+            Contacts = new List<Contact>();
+        }
 
+        // get from db
+        public Person(int id, string name, List<Contact> contacts) : this(id, name) 
+        {
+            Contacts = contacts;
         }
 
         public int ID { get; set; }
@@ -26,7 +34,7 @@ namespace wallet_and_loans.Logics
             Contacts.Add(contact);
         }
 
-        public Contact GetContactInfoWithType(ContactType type)
+        public Contact GetContactInfo(ContactType type)
         {
             foreach (Contact contact in Contacts)
             {
@@ -38,14 +46,14 @@ namespace wallet_and_loans.Logics
 
         public void UpdateContactInfo(Contact updated_contact)
         {
-            Contact contact = GetContactInfoWithType(updated_contact.TypeOfContact);
+            Contact contact = GetContactInfo(updated_contact.TypeOfContact);
             contact.ContactInfo = updated_contact.ContactInfo;
             contact.ProfileName = updated_contact.ProfileName; 
         }
 
-        public void DeleteContactInfoWithType(ContactType type)
+        public void DeleteContactInfo(ContactType type)
         {
-            Contacts.Remove(GetContactInfoWithType(type));
+            Contacts.Remove(GetContactInfo(type));
         }
     }
 }

@@ -13,7 +13,7 @@ namespace wallet_and_loans.Logics
 
         }
 
-
+        public int ID {  get; set; }
         public string Name { get; set; } = "";
         public float Balance { get; set; } = 0;
 
@@ -26,7 +26,5 @@ namespace wallet_and_loans.Logics
         {
             Balance -= balance;
         }
-
-
     }
 }

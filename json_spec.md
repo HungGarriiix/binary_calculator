@@ -34,6 +34,7 @@
 
 3. bills.json:
 {
+    id: 1,
     date: dd/mm/yyyy,
     buyer_user_id: 123,
     description: "",

@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\binaries_cal\binaries_cal.csproj" />
+    <ProjectReference Include="..\wallet_and_loans\wallet_and_loans.csproj" />
   </ItemGroup>
 
 </Project>

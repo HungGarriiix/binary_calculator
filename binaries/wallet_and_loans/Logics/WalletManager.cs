@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using wallet_and_loans.DAO;
 
 namespace wallet_and_loans.Logics
 {
-    public class WalletManager
+    public static class WalletManager
     {
-        public WalletManager() 
+        static WalletManager() 
         {
             
         }
 
-        public User MainUser { get; set; }
-        public List<Wallet> Wallets { get; set; }
+        /*public User MainUser { get; set; }
+        public List<Wallet> Wallets { get; set; }*/
+
+        public static void GetWallet(User user, string wallet_name)
+        {
+
+        }
+
+        
     }
 }

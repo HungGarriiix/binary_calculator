@@ -8,9 +8,11 @@ namespace wallet_and_loans.Logics
 {
     public class Contact
     {
-        public Contact()
+        public Contact(ContactType type, string profileName, string info)
         {
-
+            TypeOfContact = type;
+            ProfileName = profileName;
+            ContactInfo = info;
         }
 
         public ContactType TypeOfContact { get; set; } = ContactType.IN_PERSON;

@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace wallet_and_loans.Logics
 {
-    public class ItemStack
+    public abstract class ItemStack
     {
-        public ItemStack() 
+        public ItemStack(string name, int quantity) 
         {
-            
+            Name = name;
+            Quantity = quantity;
         }
 
-        public string Name { get; set; } = "";
+        public string Name { get; set; } = string.Empty;
         public int Quantity { get; set; } = 0;
-        public float TotalPrice { get; set; } = 0;
-        public float SinglePrice { get { return TotalPrice / Quantity; } }
-        // When people assigning prices for the items, they tend to get the total of price written on the bill
+        public abstract float TotalPrice { get; set; }
+        public abstract float SinglePrice { get; set; }
+        // When people assigning prices for the items, they tend to set the total of price written on the bill
         //, so only the total price is edittable
-        
     }
 }
