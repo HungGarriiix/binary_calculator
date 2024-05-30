@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,81 +9,92 @@ namespace wallet_and_loans.Logics
 {
     public class Loan
     {
-        public Loan(Bill bill)
+        public Loan(Person loaned, string description)
         {
-            BillToLoan = bill;
+            Loaned = loaned;
+            Description = description;
         }
 
         // get from db
-        public Loan(Bill bill, List<Spending> spendings, bool paymentCompleted)
-            : this(bill)
+        public Loan(Person loaned, string description, List<LoanItem> items, bool isPaid)
+            : this(loaned, description) 
         {
-            Spendings = spendings;
-            PaymentCompleted = paymentCompleted;
+            ItemList = items;
+            IsPaid = isPaid;
         }
 
-        public Bill BillToLoan { get; private set; } = null;
-        public List<Spending> Spendings { get; private set; } = new List<Spending>();
-        public bool PaymentCompleted { get; private set; } = false;
+        public Person Loaned { get; set; } = new Person(0, string.Empty);
+        public List<LoanItem> ItemList { get; set; } = new List<LoanItem>();
+        public float MoneySpent { get { return ItemList.Sum(x => x.TotalPrice); } }
+        public string Description { get; set; } = string.Empty;
+        public int NumberOfItems { get { return ItemList.Count; } }
+        public int NumberOfQuantities { get { return ItemList.Sum(x => x.Quantity); } }
+        public bool IsPaid { get; private set; } = false;
 
-        public void AddSpending(Spending spending)
+        public void AddItem(LoanItem item)
         {
-            if (Spendings.FirstOrDefault(s => s.Loaned == spending.Loaned) != null) // loaned person exists
-                throw new Exception($"{spending.Loaned.Name} is already exists.");
+            CheckPaid();
 
-            Spendings.Add(spending);
+            try
+            {
+                LoanItem found_item = GetItem(item.Name);
+                if (found_item != null)             // if item is added, add its quantity instead
+                {
+                    found_item.Quantity += item.Quantity;
+                    return;
+                }
+            }
+            catch (Exception ex)                    // if item is not added, add it
+            {
+                ItemList.Add(item);
+            }
         }
 
-        public Spending GetSpending(Person person)
+        public LoanItem GetItem(string name)
         {
-            Spending spending = Spendings.FirstOrDefault(s => s.Loaned == person);
-            if (spending == null)
-                throw new Exception($"Cannot find the details about {person.Name}'s loan.");
+            LoanItem item = ItemList.FirstOrDefault(x => x.Name == name);
 
-            return spending;
+            if (item == null) 
+                throw new Exception($"Cannot find item with name '{name}'...");
+
+            return item;
         }
 
-        public void DeleteSpending(Person person)
+        public LoanItem ChangeItemInfo(string name, LoanItem updated_item)
         {
-            Spendings.Remove(GetSpending(person));
+            CheckPaid();
+            LoanItem item = GetItem(name);
+
+            item.Name = updated_item.Name;
+            item.Quantity = updated_item.Quantity;
+            item.SinglePrice = updated_item.SinglePrice;
+
+            return item;
         }
 
-        public void AddItemToLoaned(Spending spending, LoanStack item)
+        public void RemoveItem(string name, int quantity = 0)
         {
-            if (CheckItemAvailabilityInLoans(item))
-                spending.GetItem(item.Name).Quantity += item.Quantity;
+            CheckPaid();
+            LoanItem item = GetItem(name); // assuming there is item in the list
+
+            int quantity_check = (quantity == 0) ? 0 : item.Quantity - quantity;
+            if (quantity_check > 0)
+                item.Quantity = quantity_check;
+            if (quantity_check == 0)        // if the user decides to delete the entire stock by providing
+                ItemList.Remove(item);      // enough quantity or not at all
+            if (quantity_check < 0)
+                throw new Exception($"Cannot send {item.Name} below the ground!");
         }
 
-        private bool CheckItemAvailabilityInLoans(LoanStack item)
+        public void SealLoan()
         {
-            int total = 0; // get from Bill
-            int loaned = GetTotalLoanedItems(item.Name);
-            int addition = item.Quantity;   // if the user is going to add items to loaned
-
-            if (total >= loaned)
-                throw new Exception("The item is already full.");
-            if (total > loaned + addition)
-                throw new Exception("Cannot add more items.");
-
-            return true;
+            IsPaid = true;
         }
 
-        private int GetTotalLoanedItems(string itemName)
+        private void CheckPaid()
         {
-            return Spendings.Sum(x => x.GetItem(itemName).Quantity);
+            if (IsPaid)
+                throw new Exception("The spending has been sealed.");
         }
-
-        public void MarkLoanFilled()
-        {
-            if (PaymentCompleted)
-                throw new Exception("Loan has been fulfilled already!");
-
-            PaymentCompleted = true;
-        }
-
-/*        public void UpdateSpending()
-        {
-
-        }*/
     }
 }

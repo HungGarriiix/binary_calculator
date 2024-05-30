@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\discord_main_api_gate.props" />
-</Project>

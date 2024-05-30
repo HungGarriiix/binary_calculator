@@ -243,12 +243,16 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Dependency" first="1" second="0">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -257,8 +261,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="1" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -267,6 +269,8 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="11" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -313,8 +317,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="14" second="10">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -347,8 +349,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="9" second="11">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -363,6 +363,8 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="14">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -377,14 +379,14 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="10">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Dependency" first="3" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
@@ -413,8 +415,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="11" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -431,6 +431,8 @@
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Dependency" first="3" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -439,10 +441,14 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="1" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="3" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -794,12 +800,16 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Dependency" first="0" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
@@ -852,6 +862,8 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="18" second="17">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -864,10 +876,14 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="4" second="13">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="18" second="13">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -876,8 +892,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="10" second="14">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -918,18 +932,20 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="18" second="19">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="19" second="11">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="19" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -944,8 +960,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="12" second="10">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -980,8 +994,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="8" second="11">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1030,6 +1042,8 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="10" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1040,8 +1054,6 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Dependency" first="4" second="14">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1050,6 +1062,8 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="4" second="20">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1058,6 +1072,8 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="18" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1090,20 +1106,20 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Spending</Name>
+        <Name>Loan</Name>
         <Access>Public</Access>
         <Location left="1564" top="874" />
-        <Size width="433" height="417" />
+        <Size width="412" height="417" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private Person _loaned</Member>
-        <Member type="Field">private List&lt;ItemStack&gt; _itemList</Member>
+        <Member type="Field">private List&lt;LoanItem&gt; _itemList</Member>
         <Member type="Field">private float _moneySpent</Member>
         <Member type="Field">private string _description</Member>
         <Member type="Field">private bool _isPaid</Member>
-        <Member type="Constructor">public Spending(Person loaned, string description)</Member>
-        <Member type="Constructor">public Spending(Person loaned, string description, List&lt;LoanStack&gt; items, bool isPaid)</Member>
+        <Member type="Constructor">public Loan(Person loaned, string description)</Member>
+        <Member type="Constructor">public Loan(Person loaned, string description, List&lt;LoanStack&gt; items, bool isPaid)</Member>
         <Member type="Property">public Person Loaned { get; set; }</Member>
-        <Member type="Property">public List&lt;LoanStack&gt; ItemList { get; set; }</Member>
+        <Member type="Property">public List&lt;LoanItem&gt; ItemList { get; set; }</Member>
         <Member type="Property">public float MoneySpent { get; }</Member>
         <Member type="Property">public string Description { get; set; }</Member>
         <Member type="Property">public int NumberOfItems { get; }</Member>
@@ -1113,14 +1129,14 @@
         <Member type="Method">public ItemStack GetItem(string name)</Member>
         <Member type="Method">public LoanStack ChangeItemInfo(string name, LoanStack updated_item)</Member>
         <Member type="Method">public void RemoveItem(string name)</Member>
-        <Member type="Method">public void SealSpending()</Member>
+        <Member type="Method">public void SealLoan()</Member>
         <Member type="Method">private void CheckPaid()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Bill</Name>
         <Access>Public</Access>
-        <Location left="1146" top="563" />
+        <Location left="1142" top="572" />
         <Size width="184" height="196" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private Date _date</Member>
@@ -1149,7 +1165,7 @@
       <Entity type="Class">
         <Name>Contact</Name>
         <Access>Public</Access>
-        <Location left="1124" top="1227" />
+        <Location left="1156" top="1235" />
         <Size width="329" height="196" />
         <Collapsed>False</Collapsed>
         <Member type="Field">ContactType _typeOfContact</Member>
@@ -1164,7 +1180,7 @@
       <Entity type="Enum">
         <Name>ContactType</Name>
         <Access>Public</Access>
-        <Location left="812" top="1266" />
+        <Location left="857" top="1265" />
         <Size width="162" height="61" />
         <Collapsed>False</Collapsed>
       </Entity>
@@ -1191,29 +1207,29 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Loan</Name>
+        <Name>LoanBill</Name>
         <Access>Public</Access>
-        <Location left="1613" top="476" />
-        <Size width="364" height="315" />
+        <Location left="1579" top="474" />
+        <Size width="333" height="315" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private Bill _billToLoan</Member>
-        <Member type="Field">private List&lt;Spending&gt; _spendings</Member>
+        <Member type="Field">private List&lt;Loan&gt; _loans</Member>
         <Member type="Field">private bool _paymentCompleted</Member>
-        <Member type="Constructor">public Loan(Bill bill)</Member>
-        <Member type="Constructor">public Loan(Bill bill, List&lt;Spending&gt; spendings, bool paymentCompleted)</Member>
+        <Member type="Constructor">public LoanBill(Bill bill)</Member>
+        <Member type="Constructor">public LoanBill(Bill bill, List&lt;Loan&gt; loans, bool paymentCompleted)</Member>
         <Member type="Property">public Bill BillToLoan { get; private set; }</Member>
-        <Member type="Property">public List&lt;Spending&gt; Spendings { get; private set; }</Member>
+        <Member type="Property">public List&lt;Loan&gt; Loans { get; private set; }</Member>
         <Member type="Property">public bool PaymentCompleted { get; private set; }</Member>
-        <Member type="Method">public void AddSpending(Spending spending)</Member>
-        <Member type="Method">public Spending GetSpending(Person person)</Member>
-        <Member type="Method">public void DeleteSpending(Person person)</Member>
-        <Member type="Method">public void AddItemToLoaned(Spending spending, LoanStack item)</Member>
-        <Member type="Method">private bool CheckItemAvailabilityInLoans(LoanStack item)</Member>
+        <Member type="Method">public void AddLoan(Loan loan)</Member>
+        <Member type="Method">public Loan GetLoan(Person person)</Member>
+        <Member type="Method">public void DeleteLoan(Person person)</Member>
+        <Member type="Method">public void AddItemToLoaned(Loan loan, LoanItem item)</Member>
+        <Member type="Method">private bool CheckItemAvailabilityInLoans(LoanItem item)</Member>
         <Member type="Method">public void MarkLoanFilled()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>ItemStack</Name>
+        <Name>Item</Name>
         <Access>Public</Access>
         <Location left="2005" top="229" />
         <Size width="418" height="230" />
@@ -1222,7 +1238,7 @@
         <Member type="Field">private int _quantity</Member>
         <Member type="Field">private float _singlePrice</Member>
         <Member type="Field">private float _totalPrice</Member>
-        <Member type="Constructor">public ItemStack(string name, int quantity)</Member>
+        <Member type="Constructor">public Item(string name, int quantity)</Member>
         <Member type="Property">public string Name { get; set; }</Member>
         <Member type="Property">public int Quantity { get; set; }</Member>
         <Member type="Property">public abstract float SinglePrice { get; set; }</Member>
@@ -1238,72 +1254,99 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>LoanStack</Name>
+        <Name>LoanItem</Name>
         <Access>Public</Access>
         <Location left="2108" top="991" />
         <Size width="295" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private float _singlePrice</Member>
-        <Member type="Constructor">public LoanStack(string name, int quantity, int singleValue)</Member>
+        <Member type="Constructor">public LoanItem(string name, int quantity, int singleValue)</Member>
         <Member type="Property">public override float SinglePrice { get; set; }</Member>
         <Member type="Property">public override float TotalPrice { get; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>BillStack</Name>
+        <Name>BillItem</Name>
         <Access>Public</Access>
         <Location left="1119" top="273" />
         <Size width="279" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private float _totalPrice</Member>
-        <Member type="Constructor">public BillStack(string name, int quantity, int totalValue)</Member>
+        <Member type="Constructor">public BillItem(string name, int quantity, int totalValue)</Member>
         <Member type="Property">public override float SinglePrice { get; }</Member>
         <Member type="Property">public override float TotalPrice { get; protected set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Comment">
+        <Text>Not design and implemented yet</Text>
+        <Location left="292" top="860" />
+        <Size width="127" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Not design and implemented yet</Text>
+        <Location left="10" top="874" />
+        <Size width="127" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Implementing</Text>
+        <Location left="1429" top="474" />
+        <Size width="127" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Not design and implemented yet</Text>
+        <Location left="341" top="596" />
+        <Size width="127" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Not design and implemented yet</Text>
+        <Location left="974" top="572" />
+        <Size width="127" height="50" />
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="2" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Dependency" first="4" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="7" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1322,8 +1365,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="6" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1334,12 +1375,12 @@
         <AssociationType>Aggregation</AssociationType>
       </Relationship>
       <Relationship type="Dependency" first="9" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="3" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -1350,6 +1391,8 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="10">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1364,6 +1407,8 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="2" second="11">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
