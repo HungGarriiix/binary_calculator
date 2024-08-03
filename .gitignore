@@ -29,3 +29,6 @@ binaries/wallet_and_loans_test/bin/
 binaries/wallet_and_loans_test/obj/
 binaries/discord_main_api_gate/bin/
 binaries/discord_main_api_gate/obj/
+binaries/binaries_test/bin/
+binaries/binaries_test/obj/
+binaries/StrykerOutput
